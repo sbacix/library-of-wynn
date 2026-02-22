@@ -9,21 +9,17 @@
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap');
 
         :root {
-            /* Modern Discord-esque Palette */
             --bg-base: #1e1f22;
             --bg-surface: #2b2d31;
             --bg-elevated: #313338;
             --bg-modifier-hover: rgba(78, 80, 88, 0.3);
             --bg-modifier-active: rgba(78, 80, 88, 0.48);
-            
-            --accent-primary: #5865F2; /* Blurple */
+            --accent-primary: #5865F2;
             --accent-primary-hover: #4752C4;
-            
             --text-normal: #dbdee1;
             --text-muted: #949ba4;
             --text-heading: #f2f3f5;
 
-            /* Class Colors for Accents */
             --clr-warrior: #ed4245;
             --clr-archer: #57f287;
             --clr-mage: #00e5ff;
@@ -39,24 +35,21 @@
             overflow-y: scroll;
         }
 
-        h1, .title-font {
-            font-family: 'Cinzel', serif;
-        }
+        h1, .title-font { font-family: 'Cinzel', serif; }
 
-        /* --- Animations & Effects --- */
         .ethereal-title {
             background: linear-gradient(to right, #d4d4d8 0%, #ffffff 50%, #d4d4d8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
+
         @keyframes floatIn { 
             from { opacity: 0; transform: translateY(20px) scale(0.95); } 
             to { opacity: 1; transform: translateY(0) scale(1); } 
         }
         .animate-float-in { animation: floatIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-        /* Path Selection Cards */
         .path-card {
             background-color: var(--bg-surface);
             border: 2px solid #313338;
@@ -80,20 +73,17 @@
         .path-card-Assassin:hover { border-color: var(--clr-assassin); box-shadow: 0 10px 30px rgba(235, 69, 158, 0.25); }
         .path-card-Assassin:hover .path-icon { border-color: var(--clr-assassin); color: var(--clr-assassin); background: rgba(235, 69, 158, 0.1); }
 
-        /* --- Custom Scrollbar --- */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-base); }
         ::-webkit-scrollbar-thumb { background: #111214; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #000000; }
 
-        /* --- Dashboard & Layout --- */
         .dashboard-bar {
             background-color: var(--bg-surface);
             border-bottom: 1px solid #1e1f22;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- Custom Dropdowns --- */
         .custom-dropdown { position: relative; }
         .dropdown-btn {
             background-color: var(--bg-elevated);
@@ -116,7 +106,7 @@
             border-radius: 8px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.4);
             min-width: 220px;
-            max-height: 350px;
+            max-height: 450px;
             overflow-y: auto;
             z-index: 50;
             opacity: 0;
@@ -124,13 +114,8 @@
             transform: translateY(-10px);
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .custom-dropdown.open .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        .custom-dropdown.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 
-        /* Modern Checkbox Item */
         .dropdown-item {
             display: flex;
             align-items: center;
@@ -140,10 +125,8 @@
             border-radius: 4px;
             margin: 4px;
         }
-        .dropdown-item:hover {
-            background-color: var(--bg-modifier-hover);
-            color: var(--text-heading);
-        }
+        .dropdown-item:hover { background-color: var(--bg-modifier-hover); color: var(--text-heading); }
+
         .custom-checkbox {
             appearance: none;
             width: 18px; height: 18px;
@@ -155,21 +138,12 @@
             transition: all 0.2s;
             background: transparent;
         }
-        .custom-checkbox:checked {
-            background-color: var(--accent-primary);
-            border-color: var(--accent-primary);
-        }
+        .custom-checkbox:checked { background-color: var(--accent-primary); border-color: var(--accent-primary); }
         .custom-checkbox:checked::after {
-            content: '';
-            position: absolute;
-            left: 5px; top: 1px;
-            width: 5px; height: 10px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
+            content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px;
+            border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg);
         }
 
-        /* --- Build Cards --- */
         .build-card {
             background-color: var(--bg-surface);
             border-radius: 12px;
@@ -180,11 +154,7 @@
             display: flex;
             flex-direction: column;
         }
-        .build-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-            background-color: #2e3035;
-        }
+        .build-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); background-color: #2e3035; }
         
         .card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0.8; }
         .card-Warrior .card-accent { background: var(--clr-warrior); box-shadow: 0 0 10px var(--clr-warrior); }
@@ -193,98 +163,122 @@
         .card-Shaman .card-accent { background: var(--clr-shaman); box-shadow: 0 0 10px var(--clr-shaman); }
         .card-Assassin .card-accent { background: var(--clr-assassin); box-shadow: 0 0 10px var(--clr-assassin); }
 
-        /* Badge Colors */
         .badge-Warrior { background: rgba(237, 66, 69, 0.15); color: var(--clr-warrior); }
         .badge-Archer { background: rgba(87, 242, 135, 0.15); color: var(--clr-archer); }
         .badge-Mage { background: rgba(0, 229, 255, 0.15); color: var(--clr-mage); }
         .badge-Shaman { background: rgba(254, 231, 92, 0.15); color: var(--clr-shaman); }
         .badge-Assassin { background: rgba(235, 69, 158, 0.15); color: var(--clr-assassin); }
 
-        .search-input {
-            background-color: var(--bg-base);
-            color: var(--text-normal);
-            border: 1px solid transparent;
-        }
+        .search-input { background-color: var(--bg-base); color: var(--text-normal); border: 1px solid transparent; }
         .search-input:focus { border-color: var(--accent-primary); outline: none; }
+
+        .sort-pill {
+            background-color: var(--bg-elevated);
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.2s ease;
+        }
+        .sort-pill.active { background-color: var(--accent-primary); color: white; border-color: var(--accent-primary); }
     </style>
 </head>
 <body>
 
-    <!-- Top Master Dashboard -->
     <nav class="dashboard-bar sticky top-0 z-50 py-3 px-4 md:px-8">
-        <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center gap-4 justify-between">
-            
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="w-8 h-8 rounded-lg bg-[#5865F2] flex items-center justify-center shadow-[0_0_15px_rgba(88,101,242,0.5)]">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <div class="max-w-[1400px] mx-auto flex flex-col gap-4">
+            <div class="flex flex-col md:flex-row items-center gap-4 justify-between">
+                <div class="flex items-center gap-3 shrink-0">
+                    <div class="w-8 h-8 rounded-lg bg-[#5865F2] flex items-center justify-center shadow-[0_0_15px_rgba(88,101,242,0.5)]">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-white tracking-wide title-font">Library of Wynn</h1>
                 </div>
-                <h1 class="text-xl font-bold text-white tracking-wide title-font">Library of Wynn</h1>
+
+                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto flex-grow justify-end">
+                    <div class="relative flex-grow max-sm:w-full max-w-sm">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                        <input type="text" id="searchInput" placeholder="Search builds, weapons, tags, creators..." 
+                            class="search-input w-full rounded-md pl-10 pr-4 py-2 text-sm placeholder-gray-500 transition-colors">
+                    </div>
+
+                    <div class="custom-dropdown" id="dropdown-class">
+                        <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-class')">
+                            <span id="class-btn-text">Classes</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="dropdown-menu" id="classFilters"></div>
+                    </div>
+
+                    <div class="custom-dropdown" id="dropdown-subclass">
+                        <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-subclass')">
+                            <span id="subclass-btn-text">Subclasses</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="dropdown-menu" id="subclassFilters"></div>
+                    </div>
+
+                    <div class="custom-dropdown" id="dropdown-origin">
+                        <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-origin')">
+                            <span id="origin-btn-text">Origin</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="dropdown-menu" id="originFilters"></div>
+                    </div>
+
+                    <div class="custom-dropdown" id="dropdown-rarity">
+                        <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-rarity')">
+                            <span id="rarity-btn-text">Rarity</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="dropdown-menu" id="rarityFilters"></div>
+                    </div>
+
+                    <div class="custom-dropdown" id="dropdown-weapon">
+                        <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-weapon')">
+                            <span id="weapon-btn-text">Weapons</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="dropdown-menu" id="weaponFilters"></div>
+                    </div>
+
+                    <button onclick="clearFilters()" class="text-sm font-medium text-[#ed4245] hover:underline transition-colors px-2">Reset All</button>
+                </div>
             </div>
 
-            <div class="flex flex-wrap items-center gap-3 w-full md:w-auto flex-grow justify-end">
-                <div class="relative flex-grow max-sm:w-full max-w-sm">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="flex flex-wrap items-center justify-between gap-4 py-2 border-t border-[#313338]">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="text-xs font-bold uppercase text-gray-500 mr-2">Sort By:</span>
+                    <button onclick="setSort('dps')" id="sort-dps" class="sort-pill px-3 py-1 rounded-full text-xs font-medium active">Highest DPS</button>
+                    <button onclick="setSort('ehp')" id="sort-ehp" class="sort-pill px-3 py-1 rounded-full text-xs font-medium">Highest EHP</button>
+                    <button onclick="setSort('dph')" id="sort-dph" class="sort-pill px-3 py-1 rounded-full text-xs font-medium">Damage / Hit</button>
+                    <button onclick="setSort('aspd')" id="sort-aspd" class="sort-pill px-3 py-1 rounded-full text-xs font-medium">Attack Speed</button>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <div class="custom-dropdown" id="dropdown-content">
+                        <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-content')">
+                            <span id="content-btn-text">Content Filter</span>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="dropdown-menu" id="contentFilters"></div>
                     </div>
-                    <input type="text" id="searchInput" placeholder="Search builds, weapons, tags..." 
-                        class="search-input w-full rounded-md pl-10 pr-4 py-2 text-sm placeholder-gray-500 transition-colors">
                 </div>
-
-                <div class="custom-dropdown" id="dropdown-class">
-                    <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-class')">
-                        <span id="class-btn-text">Classes</span>
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="dropdown-menu" id="classFilters"></div>
-                </div>
-
-                <div class="custom-dropdown" id="dropdown-subclass">
-                    <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-subclass')">
-                        <span id="subclass-btn-text">Subclasses</span>
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="dropdown-menu" id="subclassFilters"></div>
-                </div>
-
-                <div class="custom-dropdown" id="dropdown-weapon">
-                    <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-weapon')">
-                        <span id="weapon-btn-text">Weapons</span>
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="dropdown-menu" id="weaponFilters"></div>
-                </div>
-
-                <div class="custom-dropdown" id="dropdown-content">
-                    <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-content')">
-                        <span id="content-btn-text">Content</span>
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="dropdown-menu" id="contentFilters"></div>
-                </div>
-
-                <div class="custom-dropdown" id="dropdown-playstyle">
-                    <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-playstyle')">
-                        <span id="playstyle-btn-text">Playstyle</span>
-                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="dropdown-menu" id="playstyleFilters"></div>
-                </div>
-
-                <button onclick="clearFilters()" class="text-sm font-medium text-gray-400 hover:text-white transition-colors px-2">Clear</button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="max-w-[1400px] mx-auto p-4 md:px-6 md:py-4">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-2xl font-bold text-white title-font">Community Grimoire</h2>
-            <span id="resultsCount" class="text-sm text-[#949ba4] font-medium bg-[#2b2d31] px-3 py-1 rounded-full border border-[#1e1f22]">0 Builds</span>
+            <div class="flex items-center gap-3">
+                <span id="activeSortDisplay" class="text-[10px] uppercase font-bold text-gray-500">Sorted by DPS</span>
+                <span id="resultsCount" class="text-sm text-[#949ba4] font-medium bg-[#2b2d31] px-3 py-1 rounded-full border border-[#1e1f22]">0 Builds</span>
+            </div>
         </div>
         <div id="buildsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
     </main>
 
-    <!-- Footer -->
     <footer class="max-w-[1400px] mx-auto px-4 md:px-6 pb-8 pt-4 mt-4 border-t border-[#313338] text-center flex flex-col gap-2">
         <p class="text-xs text-[#949ba4] tracking-wide flex items-center justify-center gap-1.5">
             <svg class="w-3.5 h-3.5 text-[#5865F2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
@@ -296,88 +290,137 @@
     </footer>
 
     <script>
-        // --- DATA LAYER ---
         const buildsData = [
             // --- WARRIOR BUILDS ---
-            { id: "w-con-pala", name: "Convergence (Paladin Support)", class: "Warrior", subclass: "Paladin", weapon: "Convergence", dps: "Varies", dpsValue: 200000, survivability: "Dependent", survValue: 8, description: "Uses: NOTG, NOL, Lootruns.", tags: ["Support", "Tank", "NOTG", "NOL", "Lootrun"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CN0O0VTctzAT4nzw4gvLU6eG05mwmLEunzobspBGs-Ud0" }] },
-            { id: "w-con-pala-crafted", name: "Crafted Convergence (Paladin Support)", class: "Warrior", subclass: "Paladin", weapon: "Convergence", dps: "Varies", dpsValue: 200000, survivability: "Dependent", survValue: 8, description: "By AtalyaSan. Uses: NOTG, NOL.", tags: ["Crafted", "Support", "Tank", "NOTG", "NOL"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...2E1+2E1OY4Wya8eFnCXgfFfFXJfB92W7tBNQFl0P-xT20" }] },
-            { id: "w-blood-fall-crafted", name: "Crafted Bloodbath (Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Bloodbath", dps: "Varies", dpsValue: 800000, survivability: "Dependent", survValue: 4, description: "By Autosmord and Helmp. Uses: TNA, TCC, NOTG, NOL.", tags: ["Crafted", "Burst", "Spell", "TNA", "TCC", "NOTG", "NOL"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...KYRIK2dYPY441H9k9H9k9H9SAn9I0cyMumR0ezAtVNkWR" }] },
-            { id: "w-thru-fall-crafted", name: "Crafted Thrundacrack (RECOMMENDED)", class: "Warrior", subclass: "Fallen", weapon: "Thrundacrack", dps: "Varies", dpsValue: 900000, survivability: "Dependent", survValue: 4, description: "By Bowpotat, 1kv, shirosyl. Uses: NOL, TCC, NOTG.", tags: ["Crafted", "Burst", "Spell", "Recommended", "NOL", "TCC", "NOTG"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...WYWYWYW2OY406c88AnD9AnD9AXJ9EH2ONp5kqxl-x69Q1" }] },
-            // --- ARCHER BUILDS ---
-            { id: "a-lab-trap-crafted", name: "Crafted Labyrinth (Trapper)", class: "Archer", subclass: "Trapper", weapon: "Labyrinth", dps: "Varies", dpsValue: 500000, survivability: "Dependent", survValue: 6, description: "By 1kv, Hijmen, and ConcaveTriangle. Uses: NOL, NOTG, Annihilation, TCC, TNA.", tags: ["Crafted", "NOL", "NOTG", "Annihilation", "TCC", "TNA"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...YuY0EH2Y0paBYBYBYBYB2p49WLP4oxrHc0mxZrobHZ70T" }] },
-            // --- MAGE BUILDS ---
-            { id: "m-trance-rift-crafted", name: "Crafted Trance (Riftbender)", class: "Mage", subclass: "Riftwalker", weapon: "Trance", dps: "Varies", dpsValue: 550000, survivability: "Dependent", survValue: 5, description: "By wisedrag and TheSlimeWarrior. Uses: TCC, NOTG, Annihilation.", tags: ["Crafted", "Riftbender", "TCC", "NOTG", "Annihilation"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...k8k8k8WJaW8mCvYuYuYuYuYmCH2uA7ZykANw7FDLhTQi0" }] },
-            { id: "m-trance-rift", name: "Trance (Riftbender)", class: "Mage", subclass: "Riftwalker", weapon: "Trance", dps: "Varies", dpsValue: 500000, survivability: "Dependent", survValue: 5, description: "By SlimeWarrior and Dos Uno. Uses: TCC, Annihilation.", tags: ["Riftbender", "TCC", "Annihilation"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CK0X6GO1m90XQG05US066kon8lhob+nJJrQd6B" }] },
-            { id: "m-quetz-rift", name: "Quetzalcoatl (Riftwalker)", class: "Mage", subclass: "Riftwalker", weapon: "Quetzalcoatl", dps: "Varies", dpsValue: 600000, survivability: "Dependent", survValue: 5, description: "By Hijmen, BigBenck, SugVon and QwertyKat14. Uses: TCC, TNA, NOL, NOTG.", tags: ["Riftwalker", "TCC", "TNA", "NOL", "NOTG"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CM0G7W5GWi3OrmKEcoH15mlHFk5Sv-RjjNsF" }] },
-            // --- ASSASSIN BUILDS ---
-            { id: "as-hana-acro-crafted", name: "Crafted Hanafubuki (Acrobat)", class: "Assassin", subclass: "Acrobat", weapon: "Hanafubuki", dps: "Varies", dpsValue: 500000, survivability: "Dependent", survValue: 6, description: "By pnoot. Uses: general use.", tags: ["Crafted", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...WlmbmbmcOc81HWPYP2+2N2N2RISY40AFeF0uzK-Y-knA0" }] },
-            { id: "as-hana-acro", name: "Hanafubuki (Acrobat)", class: "Assassin", subclass: "Acrobat", weapon: "Hanafubuki", dps: "Varies", dpsValue: 500000, survivability: "Dependent", survValue: 6, description: "By pnoot. Uses: general use.", tags: ["General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CN0jxG0EWi3wtmM76eG15EG0AFoxf+5-TZL0" }] },
-            { id: "as-obl-trick-crafted", name: "Crafted Oblivion (Trickster)", class: "Assassin", subclass: "Trickster", weapon: "Oblivion", dps: "Varies", dpsValue: 700000, survivability: "Dependent", survValue: 5, description: "By pnoot. Uses: TNA, TCC.", tags: ["Crafted", "TNA", "TCC"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...mcqnmcqnOc81H0RI73RI73RI7JSY40GkBSfVUNIrnTWa1" }] },
-            { id: "as-obl-spellshade-crafted", name: "Crafted Oblivion (Spell Shadestepper)", class: "Assassin", subclass: "Shadestepper", weapon: "Oblivion", dps: "Varies", dpsValue: 800000, survivability: "Dependent", survValue: 4, description: "By pnoot. RECOMMENDED. Uses: TNA, NOL, TCC, Annihilation.", tags: ["Crafted", "Recommended", "Spell", "TNA", "NOL", "TCC", "Annihilation"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...XB1VXBnCH2Y0saE6saE6saEcu490WSNuiB0u-m-mwVvX0" }] },
-            { id: "as-obl-shade-melee-crafted", name: "Crafted Oblivion (Heavy Melee)", class: "Assassin", subclass: "Shadestepper", weapon: "Oblivion", dps: "Varies", dpsValue: 850000, survivability: "Dependent", survValue: 5, description: "By pnoot. Heavy Melee variant. Uses: General Use.", tags: ["Crafted", "Heavy Melee", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...eaz4u4982OJSJOJSJYIsJWJa0C4IyF0oj8SfV+3zVRKK0" }] },
-            { id: "as-inf-trick-crafted", name: "Crafted Inferno (Trickster)", class: "Assassin", subclass: "Trickster", weapon: "Inferno", dps: "Varies", dpsValue: 750000, survivability: "Dependent", survValue: 8, description: "By pnoot. Uses: General Use.", tags: ["Crafted", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...0VXgXg1dmCH2Y0g6S2y5g6g6SYu490MDlSfVUNIrnTWa1" }] },
-            { id: "as-nir-shade-crafted", name: "Crafted Nirvana (Shadestepper)", class: "Assassin", subclass: "Shadestepper", weapon: "Nirvana", dps: "Varies", dpsValue: 800000, survivability: "Dependent", survValue: 5, description: "By pnoot. RECOMMENDED. Uses: NOL, TNA, TCC, Annihilation.", tags: ["Crafted", "Recommended", "Spell", "NOL", "TNA", "TCC", "Annihilation"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...cqnqnOc81HWPYP2+2RI7J7JSY4GicHE-22260+FwFi+NU8" }] },
-            { id: "as-cata-trick-crafted", name: "Crafted Cataclysm (Trickster)", class: "Assassin", subclass: "Trickster", weapon: "Cataclysm", dps: "Varies", dpsValue: 1000000, survivability: "Dependent", survValue: 3, description: "By pnoot. Pre-made parties only. Uses: TCC.", tags: ["Crafted", "TCC", "Glass Cannon"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...8e8e8e0d81WX92mNmN4K4K4K4KYJa0sqSnb+vT9L7t1I6" }] },
-            { id: "as-grim-shade-crafted", name: "Crafted Grimtrap (Shadestepper)", class: "Assassin", subclass: "Shadestepper", weapon: "Grimtrap", dps: "Varies", dpsValue: 700000, survivability: "Dependent", survValue: 6, description: "By pnoot. Uses: Non meta.", tags: ["Crafted", "Non-Meta"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...ZXDXDXD1EH2YWEcEcE6s4s4s4p490-SGgPXB-Z+Rzly05" }] },
-            { id: "as-wea-shade-crafted", name: "Crafted Weathered (Shadestepper)", class: "Assassin", subclass: "Shadestepper", weapon: "Weathered", dps: "Varies", dpsValue: 800000, survivability: "Dependent", survValue: 7, description: "By pnoot. Uses: NOL, TCC, Annihilation, General Use.", tags: ["Crafted", "NOL", "TCC", "Annihilation", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...IuIuIuICJaW80V1VXBXBXBXB9EH2uNpEdh00-Bz7M-BF4" }] },
-            { id: "as-null-trick-crafted", name: "Crafted Nullification (Trickster)", class: "Assassin", subclass: "Trickster", weapon: "Nullification", dps: "Varies", dpsValue: 600000, survivability: "Dependent", survValue: 7, description: "By NerdyGamer2012. Smoke Stack Tree. Uses: General Use.", tags: ["Crafted", "Smoke Stack", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...8uIWJaW80V1V9X8X8XWB1EH20A7+vOMp5NwdtbKTS78P0" }] },
-            // --- NON-MYTHIC BUILDS ---
-            { id: "nm-as-flame", name: "Flameshot Hilt (Shadestepper)", class: "Assassin", subclass: "Shadestepper", weapon: "Flameshot Hilt", dps: "Varies", dpsValue: 400000, survivability: "Dependent", survValue: 5, description: "By pnoot. Non-Mythic starter. Uses: General Use.", tags: ["Non-Mythic", "Starter", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CN05uG4CWi37I0wEGtnrEMbn94S88H0uVg-mwVvH" }] },
-            { id: "nm-as-anim", name: "Animosity (Heavy Melee)", class: "Assassin", subclass: "Shadestepper", weapon: "Animosity", dps: "Varies", dpsValue: 450000, survivability: "Dependent", survValue: 6, description: "By pnoot. Non-Mythic Heavy Melee. Uses: General Use.", tags: ["Non-Mythic", "Starter", "Heavy Melee", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CJ04KmeCym056W3GS0Y57Y-nTW5nb+vFq-jnO1" }] },
-            { id: "nm-ar-briar", name: "Briar's Embrace (Trapper)", class: "Archer", subclass: "Trapper", weapon: "Briar's Embrace", dps: "Varies", dpsValue: 350000, survivability: "Dependent", survValue: 6, description: "Non-Mythic starter. Uses: NOTG, NOL.", tags: ["Non-Mythic", "Starter", "NOTG", "NOL"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CM0yzGO1G00OVm28oZH15koHwkNrb-nrSfHFUG4" }] },
-            { id: "nm-ar-anth", name: "Anthracite Ballista (Tierstack)", class: "Archer", subclass: "Boltslinger", weapon: "Anthracite Ballista", dps: "Varies", dpsValue: 400000, survivability: "Dependent", survValue: 5, description: "Non-Mythic Tierstack. Uses: TCC.", tags: ["Non-Mythic", "Starter", "Tierstack", "TCC"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CM0bB0s1Cn3OVGr2Kdmq2amnU0o-ZdofMl+0" }] },
-            { id: "nm-wa-zephra", name: "Zephra Shredder (Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Zephra Shredder", dps: "Varies", dpsValue: 450000, survivability: "Dependent", survValue: 6, description: "Non-Mythic starter. Uses: NOTG, NOL, TNA, TCC.", tags: ["Non-Mythic", "Starter", "Burst", "Spell"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CN0W9sT0K0vMxgpVkTrH37QuOY2CUuvskZ61WURzq-kY6" }] },
-            { id: "nm-wa-forsaken", name: "Forsaken (Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Forsaken", dps: "Varies", dpsValue: 400000, survivability: "Dependent", survValue: 6, description: "By Pandamonium and hijmen. Non-Mythic alternative. Uses: NOTG, NOL, TNA, TCC.", tags: ["Non-Mythic", "Starter", "Burst", "Spell"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CN0CjWz4Wi3-vGoD2emVCOyG3ZTEl1U30wjrJ-xAQ0" }] },
-            { id: "nm-ma-event", name: "Event Horizon (Light Bender)", class: "Mage", subclass: "Light Bender", weapon: "Event Horizon", dps: "Varies", dpsValue: 350000, survivability: "Dependent", survValue: 7, description: "Non-Mythic starter. Uses: NOTG, TCC.", tags: ["Non-Mythic", "Starter", "Support", "NOTG", "TCC"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CK0X6G6Gm90zTG05qm166koHzZHNw7FDLhTQi0" }] },
-            { id: "nm-ma-morrow", name: "Morrowind (Arcanist)", class: "Mage", subclass: "Arcanist", weapon: "Morrowind", dps: "Varies", dpsValue: 400000, survivability: "Dependent", survValue: 6, description: "Non-Mythic Arcanist. Uses: TNA, TCC, NOL.", tags: ["Non-Mythic", "Starter", "Arcanist", "TNA", "TCC", "NOL"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...0+0+0+0-1T2Y2Y2Z2Z2a2a401401401401401lVpyDc+B" }] },
-            { id: "nm-sh-panic-sum", name: "Panic Zealot (Summoner)", class: "Shaman", subclass: "Summoner", weapon: "Panic Zealot", dps: "Varies", dpsValue: 400000, survivability: "Dependent", survValue: 7, description: "By Storkk. Non-Mythic Summoner. Uses: General Use.", tags: ["Non-Mythic", "Starter", "Summoner", "General Use"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/builder/#CN0oqG2ECn3-vmKEcon45EdG4kTkkupH7udzJNgx7lW10" }] },
-            { id: "nm-sh-panic-aco", name: "Panic Zealot (Acolyte)", class: "Shaman", subclass: "Acolyte", weapon: "Panic Zealot", dps: "Varies", dpsValue: 450000, survivability: "Dependent", survValue: 6, description: "By Hotaga. Non-Mythic Acolyte. Uses: NOTG, TCC, NOL, TNA.", tags: ["Non-Mythic", "Starter", "Acolyte", "NOTG", "TCC", "NOL", "TNA"], links: [{ label: "Build Link", url: "https://wynnbuilder.github.io/build...+0+0+0-1T2Y2Y2Z2Z2a2a401401401401401zFEdsZT70" }] }
-        ];
+            { id: "w-conv-pal", name: "Convergence (Paladin Support)", class: "Warrior", subclass: "Paladin", weapon: "Convergence", rarity: "Mythic", isCrafted: false, dpsValue: 2752, ehpValue: 55368, aspd: "Super Slow", dphValue: 5397, description: "Detailed Paladin Support build for high survivability.", uses: ["NOTG", "NOL", "Lootruns"], tags: ["Support", "Tank"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0O0VTctzAT4nzw4gvLU6eG05mwmLEunzobspBGs-Ud0" }] },
+            { id: "w-conv-pal-crafted", name: "Crafted Convergence (Paladin Support)", class: "Warrior", subclass: "Paladin", weapon: "Convergence", rarity: "Mythic", isCrafted: true, author: "AtalyaSan", dpsValue: 2784, ehpValue: 60521, aspd: "Super Slow", dphValue: 5460, description: "Crafted variant optimized for even higher effective health.", uses: ["NOTG", "NOL"], tags: ["Crafted", "Support"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0O0VTctzAz8m8vm0ZffHoefXDH2UT2ryAV4maOcicWJWlWJ0c81H0JYPoQ2E1+2E1OY4Wya8eFnCXgfFfFXJfB92W7tBNQFl0P-xT20" }] },
+            { id: "w-bb-fall-crafted", name: "Crafted Bloodbath (Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Bloodbath", rarity: "Mythic", isCrafted: true, author: "Autosmord and Helmp", dpsValue: 3201, ehpValue: 11352, aspd: "Very Slow", dphValue: 3857, description: "High-burst Fallen build using Poison and Life Steal.", uses: ["TNA", "TCC", "NOTG", "NOL"], tags: ["Crafted", "Burst", "Poison"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7MS6FiuaEPnPjoY71H9k9H9k9H9SAm9IG44buc4buc4bmf0d81HGKYRIKYRIK2dYPY441H9k9H9k9H9SAn9I0cyMumR0ezAtVNkWR" }] },
+            { id: "w-bb-gen-fall-crafted", name: "Crafted Bloodbath (Generalist Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Bloodbath", rarity: "Mythic", isCrafted: true, author: "Bowpotat", dpsValue: 8019, ehpValue: 7046, aspd: "Slow", dphValue: 5346, description: "Glass-cannon generalist build with massive average DPS.", uses: ["TNA", "TCC", "NOTG", "NOL"], tags: ["Crafted", "Generalist", "High DPS"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7My8m8vm0ZX81q0quCH2MS80iuHWHoX163H2e1e1PY4iuHGKYRIKYRIK2d2SY441H9k9H9k9H9SAm9IG44buc4buc4bmfOc81HGKYRIKYRIK2dISY4W9l5EiA0+DVzVte1" }] },
+            { id: "w-coll-fall-gen", name: "Collapse (Upperscream Fallen Burst - General Use)", class: "Warrior", subclass: "Fallen", weapon: "Collapse", rarity: "Mythic", isCrafted: false, dpsValue: 8019, ehpValue: 7046, aspd: "Slow", dphValue: 5346, description: "High damage general use build for Fallen warriors.", uses: ["General Use"], tags: ["General Use", "Fallen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7My8m8vm0ZX81q0quCH2MS80iuHWHoX163H2e1e1PY4iuHGKYRIKYRIK2d2SY441H9k9H9k9H9SAm9IG44buc4buc4bmfOc81HGKYRIKYRIK2dISY4W9l5EiA0+DVzVte1" }] },
+            { id: "w-coll-fall-lr", name: "Collapse (Upperscream Fallen Burst - Lootrun)", class: "Warrior", subclass: "Fallen", weapon: "Collapse", rarity: "Mythic", isCrafted: false, dpsValue: 4268, ehpValue: 20781, aspd: "Very Slow", dphValue: 5142, description: "Balanced lootrun build with high Walk Speed and Exploding.", uses: ["Lootruns"], tags: ["Lootrun", "Speed"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN00Qmd6qI2uQW6EqmH15amWdcNrbURzq-kY6" }] },
+            { id: "w-coll-fall-crafted", name: "Crafted Collapse (Upperscream Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Collapse", rarity: "Mythic", isCrafted: true, author: "TheFreakingNerd, BigBenck and The_Androphoniac", dpsValue: 6060, ehpValue: 19764, aspd: "Very Slow", dphValue: 7301, description: "Crafted variant for Fallen warriors focused on burst damage.", uses: ["General Use"], tags: ["Crafted", "Burst"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG4OaSOWnycuoOQec810z7+I82CIUImOQFWIaC8Ja0HW9Y92RoQ2N2N2SY441c8c8i9h9S9S9m9I05KWn3UQMuIljUwVNH3" }] },
+            { id: "w-thru-fall-crafted", name: "Crafted Thrundacrack (RECOMMENDED)", class: "Warrior", subclass: "Fallen", weapon: "Thrundacrack", rarity: "Mythic", isCrafted: true, author: "Bowpotat, 1kv, shirosyl and SugVon", dpsValue: 7907, ehpValue: 13035, aspd: "Very Fast", dphValue: 2550, description: "The recommended Fallen warrior build. Incredible speed and consistency.", uses: ["NOL", "TCC", "NOTG"], tags: ["Recommended", "Fast", "Fallen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7kSqQSvaEvoXNpb71H9k9H9k9H9SAm9IG44buc4buc4bmf0d81WXX8Aihv2NwDl-x6pe1" }] },
+            { id: "w-thru-fall-gen", name: "Thrundacrack (Upperscream Fallen Burst - General)", class: "Warrior", subclass: "Fallen", weapon: "Thrundacrack", rarity: "Mythic", isCrafted: false, author: "Shirosyl", dpsValue: 7924, ehpValue: 13035, aspd: "Very Fast", dphValue: 2556, description: "Standard general-purpose Thrundacrack setup.", uses: ["TNA", "NOL", "TCC"], tags: ["General Use", "Fast"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7kSqQSvaEvoXNpb71H9k9H9k9H9SAm9IG44buc4buc4bmf0d81WXX8Aihv2NwDl-x6pe1" }] },
+            { id: "w-thru-notg", name: "Thrundacrack (Upperscream Fallen Burst - NOTG)", class: "Warrior", subclass: "Fallen", weapon: "Thrundacrack", rarity: "Mythic", isCrafted: false, dpsValue: 5940, ehpValue: 13285, aspd: "Fast", dphValue: 2376, description: "Optimized for NOTG content.", uses: ["NOTG"], tags: ["NOTG", "Fallen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7kSud1E1WNpbp64sWG15wlnkcBSftMFzlhe1" }] },
+            { id: "w-idol-fall-crafted", name: "Crafted Idol (Upperscream Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Idol", rarity: "Mythic", isCrafted: true, author: "Hijmen", dpsValue: 3354, ehpValue: 8010, aspd: "Slow", dphValue: 2236, description: "A crafted Idol build for spell-heavy Fallen gameplay.", uses: ["TCC", "General Use"], tags: ["Crafted", "Spell"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0e10-CWi3yQ41TCTCi9i9i9i9m9IG4qnqnmcmcmcmc0d81HG7J73R2R2R2RYPY4WVEKrCo9D0GljUwVNH3" }] },
+            { id: "w-idol-fall", name: "Idol (Upperscream Fallen Burst)", class: "Warrior", subclass: "Fallen", weapon: "Idol", rarity: "Mythic", isCrafted: false, author: "helmp", dpsValue: 2699, ehpValue: 14935, aspd: "Slow", dphValue: 1799, description: "Standard Idol setup with decent reflection and poison.", uses: ["General Use"], tags: ["Standard", "Fallen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0t01-CaE1yQGoDIk156ypXgcHEj10wjrJ-xAQ0" }] },
+            { id: "w-idol-palamonk-crafted", name: "Crafted Idol (Palamonk ScreamSurf)", class: "Warrior", subclass: "Paladin/Battle Monk", weapon: "Idol", rarity: "Mythic", isCrafted: true, author: "Storkk", dpsValue: 2891, ehpValue: 10574, aspd: "Normal", dphValue: 1410, description: "Hybrid Paladin and Battle Monk build for dynamic combat.", uses: ["General Use"], tags: ["Hybrid", "Crafted"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0e16z88WnDn8v91Zv8vCH26z8m8vm0ZHoeTfzWDH26TurCwHG7J73R2R2R2R2SY441TCTCi9i9i9i9m9IG4qnqnmcmcmcmcOc81HG7J73R2R2R2RISY4WgcbCkqUy5jnONm6" }] },
+            { id: "w-idol-palamonk", name: "Idol (Palamonk ScreamSurf)", class: "Warrior", subclass: "Paladin/Battle Monk", weapon: "Idol", rarity: "Mythic", isCrafted: false, author: "Dos Uno", dpsValue: 3099, ehpValue: 16053, aspd: "Slow", dphValue: 2066, description: "A standard Palamonk build with good water defense and reflection.", uses: ["General Use"], tags: ["Hybrid", "Reflection"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0jx6TudDwWiR-mhPq9v63KeW2NOGLpUrdk00jdVHBCw2b7" }] },
+            { id: "w-guard-mac-crafted", name: "Crafted Guardian - Big Mac", class: "Warrior", subclass: "Paladin/Battle Monk", weapon: "Guardian", rarity: "Mythic", isCrafted: true, author: "Bonlo", dpsValue: 2913, ehpValue: 103704, aspd: "Super Slow", dphValue: 5712, description: "High-sustainability tank build with massive EHP regeneration.", uses: ["NOTG", "NOL"], tags: ["Crafted", "Tank", "Regen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0O0VT63+w4cur1Jph+HGVYP2LJVIVIE2SY441z9c9KDz9z9v8m9I05KeC6cQUvIlj-0VlHS0" }] },
+            { id: "w-guard-mac", name: "Guardian - Big Mac", class: "Warrior", subclass: "Paladin/Battle Monk", weapon: "Guardian", rarity: "Mythic", isCrafted: false, author: "RenZenthio", dpsValue: 2981, ehpValue: 105942, aspd: "Super Slow", dphValue: 5845, description: "Ultimate standard tank build with the highest EHP in this library.", uses: ["NOTG", "NOL"], tags: ["Tank", "Exploding"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0O0VT63+w4cur1Jph+yu0kV8FXoOOgvbJd0WUR-1+UZu0" }] },
+            { id: "w-hero-fall-crafted", name: "Crafted Hero - Upperscream Fallen Burst", class: "Warrior", subclass: "Fallen", weapon: "Hero", rarity: "Mythic", isCrafted: true, author: "wisedrag, Nerdygamer2012, Bowpotat, _wqrp, LegitNube, FraekinMuscle, IzaDeval, TheFreakingNerd and SugVon", dpsValue: 13450, ehpValue: 29075, aspd: "Fast", dphValue: 5380, description: "Incredible walk speed and reflection hybrid burst build.", uses: ["TNA", "NOL", "TCC", "NOTG"], tags: ["Crafted", "Speed", "Burst"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0W9mu18t2uQ41TCTCn7n7n7n7m9IG4qnqn4V4V4V4V0d81HG7J7JyHyHyHyXPY4mv4QriZBzswf-T5D" }] },
+            { id: "w-hero-fall", name: "Hero - Upperscream Fallen Burst", class: "Warrior", subclass: "Fallen", weapon: "Hero", rarity: "Mythic", isCrafted: false, author: "Aazlyn", dpsValue: 17244, ehpValue: 28915, aspd: "Very Fast", dphValue: 5562, description: "Extremely high walk speed build. Skill-intensive; use Thrundacrack for easier play.", uses: ["TNA", "NOL", "TCC", "Lootruns"], tags: ["Speed", "Skill-Issue", "High DPS"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0W90W28t2uQG862em454+GhcTSq8O20qRhd+tLq0" }] },
+            { id: "w-alk-fall", name: "Alkatraz - Upperscream Fallen Burst", class: "Warrior", subclass: "Fallen", weapon: "Alkatraz", rarity: "Mythic", isCrafted: false, author: "TheFreakingNerd, Bigbenck, Storkk and Hijmen", dpsValue: 6801, ehpValue: 13792, aspd: "Super Slow", dphValue: 13335, description: "High DPH build with good walk speed and life steal.", uses: ["NOL", "TCC", "TNA", "NOTG"], tags: ["High DPH", "Fallen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0AwWz48Y30-m28M01HBOy0b68DmI0etyq-z7D" }] },
+            { id: "w-alk-fall-crafted", name: "Crafted Alkatraz - Upperscream Fallen Burst (RECOMMENDED)", class: "Warrior", subclass: "Fallen", weapon: "Alkatraz", rarity: "Mythic", isCrafted: true, author: "TheFreakingNerd and lindafelix", dpsValue: 6632, ehpValue: 19930, aspd: "Super Slow", dphValue: 13004, description: "The recommended Alkatraz build. Massive DPH and balanced stats.", uses: ["NOL", "TCC", "TNA", "NOTG"], tags: ["Recommended", "Crafted", "High DPH"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0W9mu1Kq0uQ41H9k9H9k9H9SAm9IG44buc4buc4bmf0d81KbB2YISJYISJYIuKYJa0eqGwDFzV-H3" }] },
+            { id: "w-alk-melee-crafted", name: "Crafted Alkatraz - Fallen Melee", class: "Warrior", subclass: "Fallen", weapon: "Alkatraz", rarity: "Mythic", isCrafted: true, author: "pnoot, creeper24852 and nerdygamer2012", dpsValue: 87342, ehpValue: 17503, aspd: "Super Fast", dphValue: 20312, description: "Elite melee build with astronomical DPS. Requires high skill and precision.", uses: ["TCC", "TNA"], tags: ["Crafted", "Melee", "Hyper-Carry"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG4alucKZKQKQKQec81GhnY7160r8MAOCt9W6i9ImYZlc5F2OJSJOJSJYIsJWJaW8WDnDXDnD9APF1EH2e13IuWI3fzaslrh1t0" }] },
+            { id: "w-alk-melee", name: "Alkatraz - Fallen Melee", class: "Warrior", subclass: "Fallen", weapon: "Alkatraz", rarity: "Mythic", isCrafted: false, dpsValue: 78187, ehpValue: 22941, aspd: "Super Fast", dphValue: 18183, description: "Powerful melee variant with higher EHP but lower peak DPS than crafted.", uses: ["TCC", "TNA"], tags: ["Melee", "High DPS"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0JVMSWeiue4QnnNpYZw4YmG36om0b6Ix9jVhN3k1" }] },
+            { id: "w-apoc-fall-crafted", name: "Crafted Apocalypse - Fallen Burst", class: "Warrior", subclass: "Fallen", weapon: "Apocalypse", rarity: "Mythic", isCrafted: true, author: "Asthae", dpsValue: 7789, ehpValue: 24758, aspd: "Super Slow", dphValue: 15272, description: "Unique non-meta build with extreme life steal efficiency.", uses: ["NOTG", "Non Meta"], tags: ["Crafted", "Non-Meta", "Sustain"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG44mucOayaWnufec81YW06t4Zad4C6Fbp49G4OaaZWnufqUqUmc81Y0ZaS4C6FbsZs3o49G4WJGrGrWJWJGr0ca0H0E1L3L3E1E1L3OI241u4KDKDu4u4KDQ99G4WJGrGrWJWJGrqba0Ofvbpc0WshS-Tv2k1" }] },
 
-        // --- DYNAMIC LINK FIXER ---
-        buildsData.forEach(build => {
-            if (build.links) {
-                build.links.forEach(link => {
-                    if (link.url.includes('wynnbuilder.github.io/build...')) {
-                        link.url = 'https://forums.wynncraft.com/threads/the-ultimate-build-guide.322635/';
-                        if (!link.label.includes('(via Forum)')) link.label += ' (via Forum)';
-                    }
-                });
-            }
-        });
+            // --- ARCHER BUILDS ---
+            { id: "a-lab-trap-crafted", name: "Crafted Labyrinth - Trapper", class: "Archer", subclass: "Trapper", weapon: "Labyrinth", rarity: "Mythic", isCrafted: true, author: "1kv, Hijmen and ConcaveTriangle", dpsValue: 5763, ehpValue: 36604, aspd: "Super Slow", dphValue: 11300, description: "Heavy defensive trapper build with strong earth and fire def.", uses: ["NOL", "NOTG", "Annihilation", "TCC", "TNA"], tags: ["Crafted", "Trapper", "Defense"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG4OaaZWnObObObec81Bo7169v8OCM9M9M9d9ImYyHWHIE26ZLYLYL2RY4i8FXQMaF2CJk8k8k8k8k8WJaW8mCvYuYuYuYuY0EH2Y0paBYBYBYBYB2p49WLP4oxrHc0mxZrobHZ70T" }] },
+            { id: "a-lab-trap", name: "Labyrinth - Trapper", class: "Archer", subclass: "Trapper", weapon: "Labyrinth", rarity: "Mythic", isCrafted: false, author: "SavWillow and TheSlimeWarrior", dpsValue: 7136, ehpValue: 23457, aspd: "Super Slow", dphValue: 13992, description: "Standard Labyrinth trapper with excellent mana steal and exploding stats.", uses: ["TNA", "NOTG", "NOL", "TCC", "Annihilation"], tags: ["Trapper", "Mana Steal"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6GO1G242KmZ3US0s3QdG8lNNUViMkCQy0e3" }] },
+            { id: "a-epoch-ts-crafted", name: "Crafted Epoch - Damage Tier Stack", class: "Archer", subclass: "Boltslinger", weapon: "Epoch", rarity: "Mythic", isCrafted: true, author: "The_Androphoniac, owoPeng and TheSlimeWarrior", dpsValue: 122854, ehpValue: 13485, aspd: "Super Fast", dphValue: 28570, description: "The highest DPS build in the current collection. Extreme tier stacking.", uses: ["TNA", "TCC", "Annihilation"], tags: ["Crafted", "Tierstack", "High DPS"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG4KQKZKQWcWcWpec81xEGKsT2pixuhPtHTI4mcucmcuc4bid0d81H0RYR2RYRIKoUYPY4W4EynTnb-ZdpfMlk1" }] },
+            { id: "a-epoch-ts", name: "Epoch - Tier Stack", class: "Archer", subclass: "Boltslinger", weapon: "Epoch", rarity: "Mythic", isCrafted: false, dpsValue: 101895, ehpValue: 15369, aspd: "Super Fast", dphValue: 23696, description: "Powerful standard tier stack setup with decent reflection and thorns.", uses: ["TCC", "NOL", "TNA"], tags: ["Tierstack", "Fast"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0iu0454c1+QWw4ihHJ9omWFkBEL30+FUEdQzw6" }] },
+            { id: "a-strat-trap-crafted", name: "Crafted Stratiformis - Trapper", class: "Archer", subclass: "Trapper", weapon: "Stratiformis", rarity: "Mythic", isCrafted: true, author: "wisedrag and The_Androphoniac", dpsValue: 9228, ehpValue: 22357, aspd: "Fast", dphValue: 3691, description: "High walk speed trapper variant with massive reflection.", uses: ["General Use"], tags: ["Crafted", "Speed", "Reflection"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0oq416976OCvCvCvCd9I0sI82CIECmOKLKLKL8Ja0HGyHyH7J7Jy1N2SY441n7n7TCTCn7S9m9IG44V4Vqnqn4VmbOc81HGyHyH7J7Jy1NISY4WvcTET10U-uQkSqZ701" }] },
+            { id: "a-strat-trap", name: "Stratiformis - Trapper", class: "Archer", subclass: "Trapper", weapon: "Stratiformis", rarity: "Mythic", isCrafted: false, author: "tomka700 and Kevin", dpsValue: 8783, ehpValue: 28134, aspd: "Fast", dphValue: 3513, description: "Standard Stratiformis trapper with over 200% walk speed.", uses: ["General Use"], tags: ["Speed", "Agility"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0oqG2E8t2-vG052n0n1mlXvcTEr1k30U-uQkSqZ701" }] },
+            { id: "a-strat-bolt-crafted", name: "Crafted Stratiformis - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Stratiformis", rarity: "Mythic", isCrafted: true, author: "1kv", dpsValue: 7978, ehpValue: 28692, aspd: "Fast", dphValue: 3191, description: "Mana-focused boltslinger with extremely high mana regeneration.", uses: ["General Use"], tags: ["Crafted", "Mana Regen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0ytsL705Y0F6Fcqad4zax4s49Ot9ymk+HG73+2NIyHyHy1SY441TCuBS9n7n7n7m9I05KYWE6y5kauZuZuZu490pDxSI2S40yFy+Xv1jV0" }] },
+            { id: "a-strat-bolt", name: "Stratiformis - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Stratiformis", rarity: "Mythic", isCrafted: false, dpsValue: 1254, ehpValue: 32735, aspd: "Super Slow", dphValue: 2460, description: "High-EHP boltslinger variant with reliable reflection stats.", uses: ["General Use"], tags: ["Tanky", "Reflection"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0620W2mXRtnLpkpM7IkHH7ypXvcTkyFy+Xv1jV0" }] },
+            { id: "a-spring-bolt", name: "Spring - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Spring", rarity: "Mythic", isCrafted: false, author: "SavWillow and Beetown", dpsValue: 866, ehpValue: 33898, aspd: "Super Slow", dphValue: 1699, description: "Water-specialized boltslinger with strong debuffs on enemies.", uses: ["NOL", "General Use"], tags: ["Water", "Support"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0620-Cy64kQGoD6e056ypXkcHkyFy+Xv1jV0" }] },
+            { id: "a-spring-bolt-crafted", name: "Crafted Spring - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Spring", rarity: "Mythic", isCrafted: true, author: "Labyrinthbestbow, Beetown, helmp and SugVon", dpsValue: 4942, ehpValue: 6900, aspd: "Slow", dphValue: 3295, description: "High mana regen variant focusing on constant spell-casting.", uses: ["NOL", "General Use"], tags: ["Crafted", "Mana Regen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0e16TudDwHWHoJ26pHIxHx1RY4CwHWHoJ26pHIxHx1PY4CwH0N2N2+2+2N2N2SY441S9S9uBuBS9S9m9IG4mbmbWlWlmbmbOc81H0N2N2+2+2N2NISY4WkcHkyFy+Xv1jV0" }] },
+            { id: "a-spring-sharp", name: "Spring - Sharpshooter", class: "Archer", subclass: "Sharpshooter", weapon: "Spring", rarity: "Mythic", isCrafted: false, author: "SavWillow and SugVon", dpsValue: 8538, ehpValue: 6785, aspd: "Fast", dphValue: 3415, description: "Non-meta sharpshooter build with massive mana regen and stealing.", uses: ["Non Meta"], tags: ["Sharpshooter", "Mana Regen"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0e16T6pCwHWHoJ26pHIxHx1RY4CwHWHoJ26pHIxHx1PY4CwH0N2N2+2+2N2N2SY441S9S9uBuBS9S9m9IG4mbmbWlWlmbmbOc81H0N2N2+2+2N2NISY4WkcHEU40U-5dVuCZX7" }] },
+            { id: "a-spring-sharp-crafted", name: "Crafted Spring - Sharpshooter", class: "Archer", subclass: "Sharpshooter", weapon: "Spring", rarity: "Mythic", isCrafted: true, author: "Labyrinthbestbow and SugVon", dpsValue: 8538, ehpValue: 6785, aspd: "Fast", dphValue: 3415, description: "Identical performance to standard but uses crafted components.", uses: ["Non Meta"], tags: ["Crafted", "Sharpshooter"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0e16T6pCwHWHoJ26pHIxHx1RY4CwHWHoJ26pHIxHx1PY4CwH0N2N2+2+2N2N2SY441S9S9uBuBS9S9m9IG4mbmbWlWlmbmbOc81H0N2N2+2+2N2NISY4WkcHEU40U-5dVuCZX7" }] },
+            { id: "a-div-bolt-crafted", name: "Crafted Divzer - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Divzer", rarity: "Mythic", isCrafted: true, author: "Leafish", dpsValue: 12876, ehpValue: 7617, aspd: "Slow", dphValue: 8584, description: "High poison and DPH build for boltslingers.", uses: ["TCC", "TNA"], tags: ["Crafted", "Poison", "DPH"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG4OayaWnGaGa8Qec81NgJO1aEvoPjob71C9C9i92A2A2AW9IG4mamamc8e8e8e0c81WX92OIOIOJ4K4K4KwIa0wqSnfP0mxV-WyWsF1" }] },
+            { id: "a-div-bolt", name: "Divzer - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Divzer", rarity: "Mythic", isCrafted: false, dpsValue: 2531, ehpValue: 8680, aspd: "Super Slow", dphValue: 4963, description: "Standard Divzer setup focusing on high walk speed and poison. Challenges you to not get hit.", uses: ["NOL", "TNA"], tags: ["Poison", "Speed"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0CuWM3aE1hLW6Esw066mlHdcBE330U-x7a7q+90" }] },
+            { id: "a-div-sharp-crafted", name: "Crafted Divzer - Sharpshooter", class: "Archer", subclass: "Sharpshooter", weapon: "Divzer", rarity: "Mythic", isCrafted: true, author: "Leafish and SugVon", dpsValue: 12681, ehpValue: 7617, aspd: "Slow", dphValue: 8454, description: "Sharpshooter variant of the Divzer build with high walk speed.", uses: ["Non Meta"], tags: ["Crafted", "Sharpshooter"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG4OayaWnGaGa8Qec81NgJO1aEvoPjob71C9C9i92A2A2AW9IG4mamamc8e8e8e0c81WX92OIOIOJ4K4K4KwIa0wqSnbtV1t3dTKF" }] },
+            { id: "a-gm-bolt-crafted", name: "Crafted Grandmother - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Grandmother", rarity: "Mythic", isCrafted: true, author: "werveh", dpsValue: 14507, ehpValue: 10039, aspd: "Slow", dphValue: 9671, description: "High mana regen build for continuous spell spam.", uses: ["NOL", "TNA", "NOTG", "Annihilation"], tags: ["Crafted", "Spell-Spam"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CNG4OaSOWnmgmg0nec81Y0Za33C6M5M58cp490Yu4169C9F9aAw8aAa9I0sw41v8C9TCTCTCuBm9I05Ku13fQMmb-HkVGUKx7" }] },
+            { id: "a-gm-trap-crafted", name: "Crafted Grandmother - Trapper", class: "Archer", subclass: "Trapper", weapon: "Grandmother", rarity: "Mythic", isCrafted: true, author: "Pokefanatic", dpsValue: 17398, ehpValue: 30767, aspd: "Normal", dphValue: 8486, description: "Massive poison build. Note: Replace Delirium with Bete Noir for more dmg. NEEDS OVER 100% HPR TOTAL.", uses: ["NOTG", "NOL", "TNA", "Annihilation"], tags: ["Crafted", "Poison", "HPR-Dependent"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0yzMy8W8nt0Z1Yn8v9vCH2MS80iuWzPnZ0paBYBYBYBYB2u4982CJk8k8k8k8k8WJaW8mCvYuYuYuYuYmCH2Y0paBYBYBYBYBYu49WKDBuOJ0uznrSve7l02" }] },
+            { id: "a-gm-trap", name: "Grandmother - Trapper", class: "Archer", subclass: "Trapper", weapon: "Grandmother", rarity: "Mythic", isCrafted: false, author: "Sivrel_ and melonr", dpsValue: 4588, ehpValue: 29674, aspd: "Super Slow", dphValue: 8997, description: "Standard Grandmother trapper. Note: Replace Bete Noire with Delirium for walk speed. NEEDS OVER 100% HPR TOTAL.", uses: ["NOTG", "TNA", "NOL", "Annihilation"], tags: ["Poison", "HPR-Dependent"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0yzGO1G00OVm28M0H15koHgcNbBlFkcB7zu5G0" }] },
+            { id: "a-ign-trap-crafted", name: "Crafted Ignis - Trapper", class: "Archer", subclass: "Trapper", weapon: "Ignis", rarity: "Mythic", isCrafted: true, author: "The_Androphoniac and DaddyRomzom", dpsValue: 10279, ehpValue: 31891, aspd: "Normal", dphValue: 5014, description: "Fire-based trapper focusing on burst and DOT.", uses: ["Non Meta"], tags: ["Crafted", "Fire", "DOT"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0yzUvHWHoJ26ZdobYfnPY4yoZ0ZaS4C6FbsZs3s49ub7169v8OCUAj7j7a9ImBF2m9eQeQm9m9eQWJIW80dWgXg1d0dWg1E91GUI4WJGrGrWJWJGr4da0igvbB-ZhvoHFU1K0" }] },
+            { id: "a-ign-trap", name: "Ignis - Trapper", class: "Archer", subclass: "Trapper", weapon: "Ignis", rarity: "Mythic", isCrafted: false, author: "melonr", dpsValue: 8187, ehpValue: 51148, aspd: "Normal", dphValue: 3993, description: "Extremely high EHP trapper build with thorns and exploding stats.", uses: ["Non Meta"], tags: ["Fire", "Tanky"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0yzG5G8Y3XQmZ3USWy4kongcNEs30+7NpbZUy2e0" }] },
+            { id: "a-free-bolt-crafted", name: "Crafted Freedom - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Freedom", rarity: "Mythic", isCrafted: true, author: "1n_l", dpsValue: 9407, ehpValue: 20628, aspd: "Normal", dphValue: 4588, description: "Balanced freedom boltslinger with great mana regen and XP bonuses.", uses: ["General Use"], tags: ["Crafted", "XP-Boost"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0dp6z8m8v91ZvDHqmquC926T+IixHWHoJ26J8ZanZ2PI2ixHG2H2H21RI21R2SY441949494i994i9m9I05KG23WQ6LEP10+7U-myWsF0" }] },
+            { id: "a-free-bolt", name: "Freedom - Boltslinger", class: "Archer", subclass: "Boltslinger", weapon: "Freedom", rarity: "Mythic", isCrafted: false, dpsValue: 8141, ehpValue: 21717, aspd: "Normal", dphValue: 3971, description: "Standard Freedom setup with reliable mana regen and sprint bonuses.", uses: ["General Use"], tags: ["Standard", "Balanced"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0dpWQ6yb0-0H056eGnEam0ecHjB-3lVOUGx7" }] },
+
+            // --- MAGE BUILDS ---
+            { id: "m-trance-rift-crafted", name: "Crafted Trance - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Trance", rarity: "Mythic", isCrafted: true, author: "wisedrag and TheSlimeWarrior", dpsValue: 19110, ehpValue: 30804, aspd: "Super Fast", dphValue: 4444, description: "Mana-efficient riftwalker build with high melee sustain and thorns.", uses: ["TCC", "NOTG", "Annihilation"], tags: ["Crafted", "Melee", "Sustain"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6GO1HWHoo16JxnAJx1RY4yw4gvrZ0paBYBYBYBYB2u4982CJk8k8k8k8k8WJaW8mCvYuYuYuYuYmCH2uA7ZykANw7FDLhTQi0" }] },
+            { id: "m-trance-rift", name: "Trance - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Trance", rarity: "Mythic", isCrafted: false, author: "SlimeWarrior and Dos Uno", dpsValue: 21976, ehpValue: 26201, aspd: "Super Fast", dphValue: 5110, description: "Standard Trance riftwalker with higher average melee DPS.", uses: ["TCC", "Annihilation"], tags: ["Melee", "Fast"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6GO1m90XQG05US066kon8lhob+nJJrQd6B" }] },
+            { id: "m-quetz-rift", name: "Quetzalcoatl - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Quetzalcoatl", rarity: "Mythic", isCrafted: false, author: "Hijmen, BigBenck, DaddyRomzom and QwertyKat14", dpsValue: 7633, ehpValue: 17510, aspd: "Very Fast", dphValue: 2462, description: "Balanced riftwalker build with high jump height and walk speed.", uses: ["TCC", "TNA", "NOL", "NOTG"], tags: ["Agility", "Speed"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7W5GWi3OrmKEcoH15mlHFk5Sv-RjjNsF" }] },
+            { id: "m-quetz-arc-crafted", name: "Crafted Quetzalcoatl - Arcanist", class: "Mage", subclass: "Arcanist", weapon: "Quetzalcoatl", rarity: "Mythic", isCrafted: true, author: "1kv and Labyrinthbestbow", dpsValue: 9509, ehpValue: 16455, aspd: "Super Slow", dphValue: 18645, description: "High DPH Arcanist build with extreme reflection and walk speed.", uses: ["TCC", "TNA", "NOL"], tags: ["Crafted", "Reflection", "Arcane"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0W9sL77VxEojsTmrihU4icicicmbmbmbia81HmQoQoQ2N2N2NoIY441h9h9h9S9S9S9b8I0Oxe7tEky+DptOwl" }] },
+            { id: "m-quetz-arc", name: "Quetzalcoatl - Arcanist", class: "Mage", subclass: "Arcanist", weapon: "Quetzalcoatl", rarity: "Mythic", isCrafted: false, author: "dwoc and SugVon", dpsValue: 9577, ehpValue: 16455, aspd: "Super Slow", dphValue: 18778, description: "Standard Arcanist setup featuring massive reflection and thorns.", uses: ["TCC", "TNA", "NOL"], tags: ["Reflection", "Thorns"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0W9sL77VxEojsTmrihERGO32sw0R7zusnbtlP+6J-5" }] },
+            { id: "m-fatal-arc-crafted", name: "Crafted Fatal - Arcanist", class: "Mage", subclass: "Arcanist", weapon: "Fatal", rarity: "Mythic", isCrafted: true, author: "GamerJerry", dpsValue: 8185, ehpValue: 10454, aspd: "Fast", dphValue: 3274, description: "Consumable-heavy Arcanist build for maximum efficiency.", uses: ["TCC", "Annihilation"], tags: ["Crafted", "Consumables"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G70-Cm90VB41TCTCTCi9i9i9m9IG4qnqnmcmcmcmc0d81WXXBCCgvYdrjkrjE0oxtCVZf-2" }] },
+            { id: "m-fatal-arc-rec", name: "Fatal - Arcanist (RECOMMENDED)", class: "Mage", subclass: "Arcanist", weapon: "Fatal", rarity: "Mythic", isCrafted: false, author: "Bowpotat, Attila and SugVon", dpsValue: 17738, ehpValue: 25416, aspd: "Super Fast", dphValue: 4125, description: "The recommended Mage Arcanist build. Exceptional DPS and general utility.", uses: ["TNA", "NOL", "TCC", "NOTG", "Lootruns", "Annihilation"], tags: ["Recommended", "High DPS", "Fast"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6m5CCn3rQG05qm166uMmecBkJxzVclnql" }] },
+            { id: "m-fatal-arc-lr", name: "Fatal - Arcanist (Lootrun)", class: "Mage", subclass: "Arcanist", weapon: "Fatal", rarity: "Mythic", isCrafted: false, author: "Bowpotat, Attila and SugVon", dpsValue: 16535, ehpValue: 24959, aspd: "Super Fast", dphValue: 3845, description: "Optimized for lootrunning with high loot bonus and stealing.", uses: ["Lootruns"], tags: ["Lootrun", "Speed"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6m5CCn3rQW10G01l7uMmecBkJxzVclnql" }] },
+            { id: "m-fatal-lb-crafted", name: "Crafted Fatal - Light Bender", class: "Mage", subclass: "Light Bender", weapon: "Fatal", rarity: "Mythic", isCrafted: true, author: "TheSlimeWarrior and bowpotat", dpsValue: 14304, ehpValue: 11508, aspd: "Very Fast", dphValue: 4614, description: "High-melee DPS Light Bender variant with exploding damage.", uses: ["General Use"], tags: ["Crafted", "Melee"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6Gs2m90+Q412A2A2A2A2AH4m9IG4mama8e8e8e8e0d81WX92OIOI4K4K4K4KYJa06rS5kqFVQgMvqm1" }] },
+            { id: "m-fatal-lb-ws-crafted", name: "Crafted Fatal - Light Bender (WS Variant)", class: "Mage", subclass: "Light Bender", weapon: "Fatal", rarity: "Mythic", isCrafted: true, author: "TheSlimeWarrior and bowpotat", dpsValue: 4780, ehpValue: 18803, aspd: "Very Fast", dphValue: 1542, description: "Walk speed focused Light Bender variant for faster exploration.", uses: ["General Use"], tags: ["Crafted", "Speed"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6W5GHWHoX16ZgYgIx1RY482CIECmOKLKLQF8Ja0H0J2JYWYNYWYN2SY441C9C92AU92AU9m9I0OOY0c4c415l415lau49WHDNXBzpdcgLEDS" }] },
+            { id: "m-fatal-rw-crafted", name: "Crafted Fatal - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Fatal", rarity: "Mythic", isCrafted: true, dpsValue: 12718, ehpValue: 8246, aspd: "Very Fast", dphValue: 4102, description: "High-damage riftwalker featuring exploding stats and gathering bonuses.", uses: ["TNA", "TCC", "Annihilation"], tags: ["Crafted", "Burst"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7ky8m8v91ZX8X8HquCH2kuHWHoJ263H2HYa1RY4SnnNp5doRH0J2JYWYWYWYW2SY406c8W9X9HGHGHGHG9EH2OKp5dg10j-Rxbzp1" }] },
+            { id: "m-fatal-rw", name: "Fatal - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Fatal", rarity: "Mythic", isCrafted: false, author: "BigBenck", dpsValue: 2971, ehpValue: 9716, aspd: "Super Slow", dphValue: 5827, description: "Standard Fatal riftwalker with high mana steal and reflection.", uses: ["TNA", "TCC", "Annihilation"], tags: ["Standard", "Reflection"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7kS2B0E1NEyQkS6eGvDmmG456rSn3q50c60q+ljNsF7" }] },
+            { id: "m-sing-arc-crafted", name: "Crafted Singularity - Arcanist", class: "Mage", subclass: "Arcanist", weapon: "Singularity", rarity: "Mythic", isCrafted: true, author: "Voidrim, hijmen, TheFreakingNerd and SugVon", dpsValue: 11073, ehpValue: 16435, aspd: "Very Slow", dphValue: 13341, description: "High DPH Arcanist build with significant walk speed and life steal.", uses: ["General Use"], tags: ["Crafted", "High DPH"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0A6G2ECn3rQ41c8c8i9i9TCTCm9IG4OYOYmcmcqnqn0d81KG1sWGhv20WB--PCzti5" }] },
+            { id: "m-sing-arc", name: "Singularity - Arcanist", class: "Mage", subclass: "Arcanist", weapon: "Singularity", rarity: "Mythic", isCrafted: false, dpsValue: 11753, ehpValue: 18560, aspd: "Very Slow", dphValue: 14160, description: "Standard Singularity Arcanist with balanced EHP and high damage.", uses: ["General Use"], tags: ["High DPH", "Balanced"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0A6G2ECn3rQW6EKyG15O32jcB00ky-dnqVpM" }] },
+            { id: "m-sing-rw", name: "Singularity - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Singularity", rarity: "Mythic", isCrafted: false, author: "Androphoniac", dpsValue: 4973, ehpValue: 20953, aspd: "Super Slow", dphValue: 9751, description: "Non-meta Riftwalker build. Suggestion: Use offhand Heat Death.", uses: ["Non Meta"], tags: ["Non-Meta", "Riftwalker"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G76Ti02aT0utBdfSCbZ2A8X1QDN00SU50q+ljNkQE" }] },
+            { id: "m-warp-arc-rec-crafted", name: "Crafted Warp - Arcanist (RECOMMENDED)", class: "Mage", subclass: "Arcanist", weapon: "Warp", rarity: "Mythic", isCrafted: true, author: "bowpotat, wisedrag and Voidrim", dpsValue: 4099, ehpValue: 34304, aspd: "Fast", dphValue: 1639, description: "The recommended Mage Warp build. Extreme walk speed (279%). Needs raw health regen tomes.", uses: ["TNA", "NOL", "NOTG", "TCC", "Annihilation", "Lootruns"], tags: ["Recommended", "Speed", "Tanky"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0A60-CHWHoJ26ZQYaXa1RY40NDYWEcE6s4s4s4s4u4982wOwOOJOJOJOJWJaW8eZfZXDXDXDXDnCH2eT22RsvXr10P1k20U-cvRCzN" }] },
+            { id: "m-warp-arc-tr", name: "Warp - Arcanist (Time Rift Variant)", class: "Mage", subclass: "Arcanist", weapon: "Warp", rarity: "Mythic", isCrafted: false, dpsValue: 4761, ehpValue: 36813, aspd: "Fast", dphValue: 1904, description: "Recommended standard Warp build with over 289% walk speed.", uses: ["NOL", "NOTG", "TCC", "TNA", "Annihilation", "Lootruns"], tags: ["Speed", "Arcane"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0820-C4C3kQGoD6em45QdWmcTky+DptOwl" }] },
+            { id: "m-warp-arc-lr", name: "Warp - Arcanist (Lootrun Variant)", class: "Mage", subclass: "Arcanist", weapon: "Warp", rarity: "Mythic", isCrafted: false, dpsValue: 5475, ehpValue: 28378, aspd: "Very Fast", dphValue: 1766, description: "Lootrun focused Warp build with high loot bonus and reflection.", uses: ["Lootruns"], tags: ["Lootrun", "Speed"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN082sT+qWv9xEkQsvW0YoROjZs98iPdJU0OQz-PgvZSc3" }] },
+            { id: "m-monster-rw", name: "Monster - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Monster", rarity: "Mythic", isCrafted: false, dpsValue: 3753, ehpValue: 64178, aspd: "Super Slow", dphValue: 7360, description: "Tanky Riftwalker setup with high life steal and exploding stats.", uses: ["TCC", "TNA", "NOL", "Annihilation", "NOTG"], tags: ["Tanky", "Exploding"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0O0VTg0+w8Yxr9KphJvDUS0s3koXicNED4Wfr+ljNsl3" }] },
+            { id: "m-monster-lb-crafted", name: "Crafted Monster - Light Bender", class: "Mage", subclass: "Light Bender", weapon: "Monster", rarity: "Mythic", isCrafted: true, author: "TheSlimeWarrior", dpsValue: 5132, ehpValue: 57479, aspd: "Slow", dphValue: 3421, description: "Defensive Light Bender build with massive gathering XP bonuses.", uses: ["TCC", "Annihilation", "NOTG"], tags: ["Crafted", "XP-Boost", "Tanky"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6G5GHWHoX16JxHxXv2RY482CIECmOQFQFCN8Ja0H0E1E1E1E1E1E1SY441u4u4u4u4u4u4m9I0oJG33oQUvI-uffQjJZ5" }] },
+            { id: "m-monster-lb", name: "Monster - Light Bender", class: "Mage", subclass: "Light Bender", weapon: "Monster", rarity: "Mythic", isCrafted: false, author: "Voidrim", dpsValue: 5435, ehpValue: 59325, aspd: "Slow", dphValue: 3623, description: "Standard Monster Light Bender featuring high reflection and life steal.", uses: ["TCC", "NOTG", "Annihilation"], tags: ["Standard", "Life Steal"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6G5mNdbAlEXQUT2emZ3mUmLEaryob+nJJrQd6B" }] },
+
+            // --- LATEST MAGE MYTHICS ---
+            { id: "m-gaia-rw-crafted", name: "Crafted Gaia - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Gaia", rarity: "Mythic", isCrafted: true, author: "nerdygamer2012 and daddyromzom", dpsValue: 5968, ehpValue: 9334, aspd: "Very Slow", dphValue: 7191, description: "High poison and thorns riftwalker build.", uses: ["Annihilation", "TCC"], tags: ["Crafted", "Poison", "Thorns"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G741OCjBOCjB5Cv8d9I04n92CIoHmOQFQFaC8Ja0KUB2MJMJaAMJaAaAWJaW8ODPDHgODHgGgmCH2YWrar4fYr4f2fYu49WIDBSfzVRliVE" }] },
+            { id: "m-gaia-rw", name: "Gaia - Riftwalker", class: "Mage", subclass: "Riftwalker", weapon: "Gaia", rarity: "Mythic", isCrafted: false, author: "Dos Uno and Tomka700", dpsValue: 6150, ehpValue: 12274, aspd: "Very Slow", dphValue: 7410, description: "Non-recommended standard Gaia build. Use only if necessary.", uses: ["Not Meta"], tags: ["Standard", "Poison"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0G7WM38Y30-G05AlXjEEdGfc5kq+ljNsF7" }] },
+            { id: "m-gaia-arc", name: "Gaia - Arcanist", class: "Mage", subclass: "Arcanist", weapon: "Gaia", rarity: "Mythic", isCrafted: false, author: "Voidrim and TheFreakingNerd", dpsValue: 19605, ehpValue: 17792, aspd: "Slow", dphValue: 13070, description: "Arcanist setup with extreme poison output and decent sustain.", uses: ["Not Meta"], tags: ["Poison", "Arcane"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0A6G2ECn3rQWY7KyG15uMGfc5EM60+-pertr6" }] },
+            { id: "m-lam-lb-crafted", name: "Crafted Lament - Lightbender", class: "Mage", subclass: "Light Bender", weapon: "Lament", rarity: "Mythic", isCrafted: true, author: "The_Androphoniac and TheSlimeWarrior", dpsValue: 3409, ehpValue: 8371, aspd: "Slow", dphValue: 2273, description: "Pure spell-focused Light Bender with astronomical mana steal.", uses: ["NOL", "TNA", "NOTG", "TCC", "Annihilation"], tags: ["Crafted", "Mana Steal", "Support"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0e1411Ck95CF9OC5Cd9IW8m8vm0ZfzGoGoWDH20l6HWPYPoQoQoQoQ2SY441c9c9h9h9h9h9m9IG4OcOcicicicicOc81HWPYPoQoQoQoQISY4mhcHEP10w7FDLhTQi0" }] },
+            { id: "m-lam-lb-std", name: "Lament - Lightbender (Heavy Defense)", class: "Mage", subclass: "Light Bender", weapon: "Lament", rarity: "Mythic", isCrafted: false, author: "TheSlimeWarrior and SugVon", dpsValue: 2996, ehpValue: 18398, aspd: "Slow", dphValue: 1997, description: "High EHP Lament variant for safe raiding.", uses: ["TCC", "NOTG", "Annihilation"], tags: ["Standard", "Tanky"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN00+G4iH7aTl7UDZE9t8v65Ku23lQ6vq50eVyqKjsfn2" }] },
+            { id: "m-lam-lb-ws", name: "Lament - Lightbender (Walk Speed)", class: "Mage", subclass: "Light Bender", weapon: "Lament", rarity: "Mythic", isCrafted: false, author: "TheSlimeWarrior and SugVon", dpsValue: 4971, ehpValue: 16493, aspd: "Slow", dphValue: 3314, description: "Agility-focused Lament variant for high mobility during bosses.", uses: ["TNA", "NOL", "TCC", "NOTG", "Annihilation"], tags: ["Standard", "Speed"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0vAW5GWi3yQGNCwYH15kmmhcHEN10w7FDLhTQi0" }] },
+
+            // --- STARTER / NON-MYTHIC BUILDS ---
+            { id: "nm-ar-briar", name: "Briar's Embrace Trapper", class: "Archer", subclass: "Trapper", weapon: "Briar's Embrace", rarity: "Non-Mythic", isCrafted: false, dpsValue: 3492, ehpValue: 21667, aspd: "Super Slow", dphValue: 6847, description: "Non-mythic starter trapper. Upgrades to Grandmother Trapper.", uses: ["NOTG", "NOL"], tags: ["Starter", "Poison"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0yzGO1G00OVm28oZH15koHwkNrb-nrSfHFUG4" }] },
+            { id: "nm-ar-anth", name: "Anthracite Ballista - Tierstack", class: "Archer", subclass: "Boltslinger", weapon: "Anthracite Ballista", rarity: "Non-Mythic", isCrafted: false, dpsValue: 52699, ehpValue: 29175, aspd: "Super Fast", dphValue: 12255, description: "Excellent non-mythic tier stacking. Upgrades to Epoch.", uses: ["TCC"], tags: ["Starter", "Tierstack"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0bB0s1Cn3OVGr2Kdmq2amnU0o-ZdofMl+0" }] },
+            { id: "nm-ar-axiom", name: "Axiom - Heavy Melee Sharpshooter", class: "Archer", subclass: "Sharpshooter", weapon: "Axiom", rarity: "Non-Mythic", isCrafted: false, dpsValue: 18119, ehpValue: 19109, aspd: "Super Slow", dphValue: 35528, description: "Heavy Melee alternative for Sharpshooters.", uses: ["Non Meta"], tags: ["Starter", "Heavy Melee"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN09DmeCym056GxFQ-X57Y-1Vm5Svz5tSErw7" }] },
+            { id: "nm-wa-zephra", name: "Zephra Shredder - Fallen Burst", class: "Warrior", subclass: "Fallen", weapon: "Zephra Shredder", rarity: "Non-Mythic", isCrafted: false, dpsValue: 12739, ehpValue: 20568, aspd: "Very Fast", dphValue: 4109, description: "Fast-paced starter Fallen build. Upgrades to Hero.", uses: ["NOTG", "NOL", "TNA", "TCC"], tags: ["Starter", "Fast"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0W9sT0K0vMxgpVkTrH37QuOY2CUuvskZ61WURzq-kY6" }] },
+            { id: "nm-wa-forsaken", name: "Forsaken - Fallen Burst", class: "Warrior", subclass: "Fallen", weapon: "Forsaken", rarity: "Non-Mythic", isCrafted: false, author: "Pandamonium and hijmen", dpsValue: 3951, ehpValue: 21629, aspd: "Very Fast", dphValue: 1274, description: "Cheaper alternative to Hero. Upgrades to Hero, Thrundacrack, or Bloodbath.", uses: ["NOTG", "NOL", "TNA", "TCC"], tags: ["Starter", "Cheap"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0CjWz4Wi3-vGoD2emVCOyG3ZTEl1U30wjrJ-xAQ0" }] },
+            { id: "nm-ma-event", name: "Event Horizon - Lightbender", class: "Mage", subclass: "Light Bender", weapon: "Event Horizon", rarity: "Non-Mythic", isCrafted: false, dpsValue: 7918, ehpValue: 29049, aspd: "Very Fast", dphValue: 2554, description: "Reliable non-mythic support build. Upgrades to Fatal Lightbender.", uses: ["NOTG", "TCC"], tags: ["Starter", "Support"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0X6G6Gm90zTG05qm166koHzZHNw7FDLhTQi0" }] },
+            { id: "nm-ma-morr", name: "Morrowind - Arcanist", class: "Mage", subclass: "Arcanist", weapon: "Morrowind", rarity: "Non-Mythic", isCrafted: false, dpsValue: 6611, ehpValue: 22102, aspd: "Super Slow", dphValue: 12963, description: "Starter Arcanist build. Upgrades to Quetzalcoatl or Warp.", uses: ["TNA", "TCC", "NOL"], tags: ["Starter", "Arcane"], links: [{ label: "Wynnbuilder Link", url: "https://wynnbuilder.github.io/builder/#CN0vAWZF8t2X7mKEconVC4+m6dTky+DptOwl" }] }
+        ];
+        
+        const aspdMap = { "Super Slow": 1, "Very Slow": 2, "Slow": 3, "Normal": 4, "Fast": 5, "Very Fast": 6, "Super Fast": 7 };
+        
+        const contentColorMap = {
+            "TNA": "bg-purple-900/40 text-purple-300 border-purple-700/50",
+            "NOTG": "bg-green-900/40 text-green-300 border-green-700/50",
+            "NOL": "bg-yellow-900/40 text-yellow-300 border-yellow-700/50",
+            "TCC": "bg-orange-900/40 text-orange-300 border-orange-700/50",
+            "Annihilation": "bg-blue-900/40 text-blue-300 border-blue-700/50",
+            "Lootruns": "bg-cyan-900/40 text-cyan-300 border-cyan-700/50",
+            "Non Meta": "bg-red-900/40 text-red-300 border-red-700/50",
+            "Not Meta": "bg-red-900/40 text-red-300 border-red-700/50",
+            "General Use": "bg-gray-800 text-gray-400 border-gray-700"
+        };
 
         const CLASSES = ["Warrior", "Archer", "Mage", "Shaman", "Assassin"];
         const SUBCLASSES = {
-            "Warrior": ["Fallen", "Battle Monk", "Paladin"],
+            "Warrior": ["Fallen", "Battle Monk", "Paladin", "Paladin/Battle Monk"],
             "Archer": ["Boltslinger", "Trapper", "Sharpshooter"],
             "Mage": ["Arcanist", "Light Bender", "Riftwalker"],
             "Shaman": ["Acolyte", "Summoner", "Ritualist"],
             "Assassin": ["Trickster", "Shadestepper", "Acrobat"]
         };
+
         const CONTENT_OPTIONS = [
-            { id: "TNA", label: "TNA (Nameless Anomaly)", keys: ["tna", "nameless anomaly"] },
-            { id: "NOTG", label: "NOTG (Grootslangs)", keys: ["notg", "grootslang"] },
-            { id: "NOL", label: "NOL (Nexus of Light)", keys: ["nol", "nexus of light"] },
-            { id: "TCC", label: "TCC (Canyon Colossus)", keys: ["tcc", "canyon colossus"] },
+            { id: "TNA", label: "TNA (Anomaly)", keys: ["tna"] },
+            { id: "NOTG", label: "NOTG (Grootslang)", keys: ["notg"] },
+            { id: "NOL", label: "NOL (Light)", keys: ["nol"] },
+            { id: "TCC", label: "TCC (Colossus)", keys: ["tcc"] },
             { id: "Annihilation", label: "Annihilation", keys: ["annihilation"] },
-            { id: "Lootruns", label: "Lootruns", keys: ["lootrun"] },
-            { id: "Wars", label: "Wars", keys: ["war"] }
-        ];
-        const PLAYSTYLE_OPTIONS = [
-            { id: "Spell", label: "Spell / Spam", keys: ["spell", "spam", "burst"] },
-            { id: "HeavyMelee", label: "Heavy Melee", keys: ["heavy melee", "melee"] },
-            { id: "Tierstack", label: "Tierstack", keys: ["tierstack", "tier stack"] },
-            { id: "Support", label: "Support / Healer", keys: ["support", "heal", "tank"] },
-            { id: "Hybrid", label: "Hybrid", keys: ["hybrid"] },
-            { id: "Grind", label: "Grind / Farm", keys: ["grind", "farm", "ingredient"] }
+            { id: "Lootruns", label: "Lootruns", keys: ["lootrun"] }
         ];
 
         let activeClasses = new Set();
         let activeSubclasses = new Set();
         let activeWeapons = new Set();
         let activeContent = new Set();
-        let activePlaystyles = new Set();
+        let activeOrigin = new Set();
+        let activeRarity = new Set();
         let searchQuery = "";
+        let currentSort = 'dps';
 
         function toggleDropdown(id) {
             const dropdown = document.getElementById(id);
@@ -386,10 +429,7 @@
                 d.classList.remove('open');
                 d.querySelector('.dropdown-btn').classList.remove('active');
             });
-            if (!wasOpen) {
-                dropdown.classList.add('open');
-                dropdown.querySelector('.dropdown-btn').classList.add('active');
-            }
+            if (!wasOpen) { dropdown.classList.add('open'); dropdown.querySelector('.dropdown-btn').classList.add('active'); }
         }
 
         document.addEventListener('click', (e) => {
@@ -401,30 +441,40 @@
             }
         });
 
+        function formatVal(num) {
+            if (num >= 1000) return (num / 1000).toFixed(1) + 'k';
+            return num.toString();
+        }
+
+        function setSort(type) {
+            currentSort = type;
+            document.querySelectorAll('.sort-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(`sort-${type}`).classList.add('active');
+            const sortLabels = { 'dps': 'DPS', 'ehp': 'EHP', 'dph': 'DMG / Hit', 'aspd': 'Attack Speed' };
+            document.getElementById('activeSortDisplay').textContent = `Sorted by ${sortLabels[type]}`;
+            renderBuilds();
+        }
+
         function renderFilters() {
             document.getElementById('classFilters').innerHTML = CLASSES.map(cls => `<label class="dropdown-item"><input type="checkbox" class="custom-checkbox class-cb" value="${cls}"><span class="text-sm font-medium text-[#dbdee1]">${cls}</span></label>`).join('');
             
             const allSub = Object.values(SUBCLASSES).flat();
             document.getElementById('subclassFilters').innerHTML = allSub.map(sub => {
                 const parent = Object.keys(SUBCLASSES).find(k => SUBCLASSES[k].includes(sub));
-                return `<label class="dropdown-item subclass-item" data-parent="${parent}"><input type="checkbox" class="custom-checkbox subclass-cb" value="${sub}"><span class="text-sm font-medium text-[#dbdee1]">${sub}</span><span class="ml-auto text-[10px] uppercase text-[#949ba4] bg-[#1e1f22] px-1.5 py-0.5 rounded">${parent.substring(0,3)}</span></label>`;
+                return `<label class="dropdown-item subclass-item" data-parent="${parent}"><input type="checkbox" class="custom-checkbox subclass-cb" value="${sub}"><span class="text-sm font-medium text-[#dbdee1]">${sub}</span><span class="ml-auto text-[10px] uppercase text-[#949ba4] bg-[#1e1f22] px-1.5 py-0.5 rounded">${parent ? parent.substring(0,3) : '???'}</span></label>`;
             }).join('');
 
             const uniqueWeapons = [...new Set(buildsData.map(b => b.weapon))].sort();
-            document.getElementById('weaponFilters').innerHTML = uniqueWeapons.map(wpn => `<label class="dropdown-item"><input type="checkbox" class="custom-checkbox weapon-cb" value="${wpn}"><span class="text-sm font-medium text-[#dbdee1]">${wpn}</span></label>`).join('');
+            document.getElementById('weaponFilters').innerHTML = uniqueWeapons.length ? uniqueWeapons.map(wpn => `<label class="dropdown-item"><input type="checkbox" class="custom-checkbox weapon-cb" value="${wpn}"><span class="text-sm font-medium text-[#dbdee1]">${wpn}</span></label>`).join('') : '<div class="p-4 text-xs text-gray-500">No weapons loaded.</div>';
 
             document.getElementById('contentFilters').innerHTML = CONTENT_OPTIONS.map(opt => `<label class="dropdown-item"><input type="checkbox" class="custom-checkbox content-cb" value="${opt.id}"><span class="text-sm font-medium text-[#dbdee1]">${opt.label}</span></label>`).join('');
-            document.getElementById('playstyleFilters').innerHTML = PLAYSTYLE_OPTIONS.map(opt => `<label class="dropdown-item"><input type="checkbox" class="custom-checkbox playstyle-cb" value="${opt.id}"><span class="text-sm font-medium text-[#dbdee1]">${opt.label}</span></label>`).join('');
+
+            document.getElementById('originFilters').innerHTML = [{id: 'Crafted', label: 'Crafted Items'},{id: 'Standard', label: 'Standard Items'}].map(opt => `<label class="dropdown-item"><input type="checkbox" class="custom-checkbox origin-cb" value="${opt.id}"><span class="text-sm font-medium text-[#dbdee1]">${opt.label}</span></label>`).join('');
+            document.getElementById('rarityFilters').innerHTML = [{id: 'Mythic', label: 'Mythic'},{id: 'Non-Mythic', label: 'Non-Mythic'}].map(opt => `<label class="dropdown-item"><input type="checkbox" class="custom-checkbox rarity-cb" value="${opt.id}"><span class="text-sm font-medium text-[#dbdee1]">${opt.label}</span></label>`).join('');
         }
 
         function updateButtonLabels() {
-            const labels = [
-                {id: 'class-btn-text', set: activeClasses, def: "Classes"},
-                {id: 'subclass-btn-text', set: activeSubclasses, def: "Subclasses"},
-                {id: 'weapon-btn-text', set: activeWeapons, def: "Weapons"},
-                {id: 'content-btn-text', set: activeContent, def: "Content"},
-                {id: 'playstyle-btn-text', set: activePlaystyles, def: "Playstyle"}
-            ];
+            const labels = [{id: 'class-btn-text', set: activeClasses, def: "Classes"},{id: 'subclass-btn-text', set: activeSubclasses, def: "Subclasses"},{id: 'weapon-btn-text', set: activeWeapons, def: "Weapons"},{id: 'content-btn-text', set: activeContent, def: "Content"},{id: 'origin-btn-text', set: activeOrigin, def: "Origin"},{id: 'rarity-btn-text', set: activeRarity, def: "Rarity"}];
             labels.forEach(l => {
                 const el = document.getElementById(l.id);
                 if (l.set.size === 0) el.textContent = l.def;
@@ -433,77 +483,122 @@
             });
         }
 
-        function createBuildCard(build) {
-            const tagsHtml = build.tags ? build.tags.map(tag => `<span class="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider rounded bg-[#1e1f22] text-[#dbdee1] border border-[#313338]">${tag}</span>`).join('') : '';
+        function createBuildCard(build, maxDPS, maxEHP) {
+            const tagsHtml = build.tags ? build.tags.map(tag => `<span class="px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded bg-[#1e1f22] text-[#949ba4] border border-[#313338]">${tag}</span>`).join('') : '';
             const linksHtml = build.links && build.links.length > 0 ? `<div class="mt-3 pt-2 border-t border-[#313338] mb-3"><span class="block text-[#949ba4] text-[10px] uppercase font-bold tracking-wider mb-1.5">Build Links</span><div class="flex flex-col gap-1">${build.links.map(l => `<a href="${l.url}" target="_blank" class="text-sm text-[#5865F2] hover:text-[#4752C4] hover:underline truncate transition-colors">↳ ${l.label}</a>`).join('')}</div></div>` : '<div class="mb-3"></div>';
-            const dpsPct = Math.min((build.dpsValue / 1000000) * 100, 100) || 50;
-            const survPct = (build.survValue / 10) * 100 || 50;
+            
+            const usesHtml = build.uses ? build.uses.map(use => {
+                const colorClass = contentColorMap[use] || contentColorMap["General Use"];
+                return `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase border ${colorClass}">${use}</span>`;
+            }).join('') : '';
 
-            return `<div class="build-card card-${build.class} p-5 h-full"><div class="card-accent"></div><div class="flex justify-between items-start mb-2"><div><h3 class="text-base font-bold text-white mb-1.5 leading-tight">${build.name}</h3><div class="flex items-center space-x-2"><span class="px-2 py-0.5 rounded text-[10px] font-bold badge-${build.class}">${build.class}</span><span class="text-[#949ba4] text-xs font-medium">• ${build.subclass}</span></div></div></div><p class="text-[13px] text-[#949ba4] mb-4 leading-snug">${build.description}</p><div class="bg-[#1e1f22] rounded-lg p-3 mb-2 grid grid-cols-2 gap-x-3 gap-y-3 border border-[#313338] mt-auto"><div class="col-span-2 flex justify-between items-center border-b border-[#313338] pb-1.5"><span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Mythic Weapon</span><span class="text-[#dbdee1] text-xs font-semibold">${build.weapon}</span></div><div class="col-span-2"><div><span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Est. DPS <span class="normal-case font-medium text-[#dbdee1] ml-1">(${build.dps})</span></span></div><div class="w-full bg-[#313338] rounded-full h-1.5 mt-1"><div class="bg-[#ed4245] h-1.5 rounded-full shadow-[0_0_8px_rgba(237,66,69,0.5)]" style="width: ${dpsPct}%"></div></div></div><div class="col-span-2"><div><span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Survivability <span class="normal-case font-medium text-[#dbdee1] ml-1">${build.survivability}</span></span></div><div class="w-full bg-[#313338] rounded-full h-1.5 mt-1"><div class="bg-[#57f287] h-1.5 rounded-full shadow-[0_0_8px_rgba(87,242,135,0.5)]" style="width: ${survPct}%"></div></div></div></div>${linksHtml}<div class="flex flex-wrap gap-1.5 mt-auto pt-1">${tagsHtml}</div></div>`;
+            const authorHtml = build.author ? `<p class="text-[11px] text-[#949ba4] italic mb-1.5 opacity-80">Created by ${build.author}</p>` : '';
+
+            const dpsPct = (build.dpsValue / maxDPS) * 100;
+            const ehpPct = (build.ehpValue / maxEHP) * 100;
+
+            return `
+            <div class="build-card card-${build.class} p-5 h-full">
+                <div class="card-accent"></div>
+                <div class="flex justify-between items-start mb-2">
+                    <div>
+                        <h3 class="text-base font-bold text-white mb-1 leading-tight">${build.name}</h3>
+                        ${authorHtml}
+                        <div class="flex items-center space-x-2">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold badge-${build.class}">${build.class}</span>
+                            <span class="text-[#949ba4] text-xs font-medium">• ${build.subclass}</span>
+                            <span class="text-[9px] uppercase font-bold px-1 rounded bg-[#313338] text-gray-400">${build.rarity}</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[13px] text-[#949ba4] mb-4 leading-snug min-h-[40px]">${build.description}</p>
+                
+                <div class="bg-[#1e1f22] rounded-lg p-3 mb-2 grid grid-cols-2 gap-x-3 gap-y-3 border border-[#313338] mt-auto">
+                    <div class="col-span-2 flex justify-between items-center border-b border-[#313338] pb-1.5">
+                        <span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Weapon</span>
+                        <span class="text-[#dbdee1] text-xs font-semibold">${build.weapon}</span>
+                    </div>
+                    <div>
+                        <span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Attack Speed</span>
+                        <div class="text-[#dbdee1] text-xs font-medium">${build.aspd}</div>
+                    </div>
+                    <div>
+                        <span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Dmg / Hit</span>
+                        <div class="text-[#dbdee1] text-xs font-medium">${formatVal(build.dphValue)}</div>
+                    </div>
+                    <div class="col-span-2">
+                        <div>
+                            <span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Avg. DPS <span class="normal-case font-medium text-[#dbdee1] ml-1">(${formatVal(build.dpsValue)})</span></span>
+                        </div>
+                        <div class="w-full bg-[#313338] rounded-full h-1.5 mt-1">
+                            <div class="bg-[#57f287] h-1.5 rounded-full shadow-[0_0_8px_rgba(237,66,69,0.4)]" style="width: ${dpsPct}%"></div>
+                        </div>
+                    </div>
+                    <div class="col-span-2">
+                        <div>
+                            <span class="text-[#949ba4] text-[10px] uppercase font-bold tracking-wider">Effective HP <span class="normal-case font-medium text-[#dbdee1] ml-1">${formatVal(build.ehpValue)}</span></span>
+                        </div>
+                        <div class="w-full bg-[#313338] rounded-full h-1.5 mt-1">
+                            <div class="bg-[#ed4245] h-1.5 rounded-full shadow-[0_0_8px_rgba(237,66,69,0.4)]" style="width: ${ehpPct}%"></div>
+                        </div>
+                    </div>
+                </div>
+                ${linksHtml}
+                <div class="flex flex-col gap-2.5 mt-auto pt-1">
+                    <div class="flex flex-wrap gap-1.5">${usesHtml}</div>
+                    <div class="flex flex-wrap gap-1.5">${tagsHtml}</div>
+                </div>
+            </div>`;
         }
 
         function renderInitialState() {
             const grid = document.getElementById('buildsGrid');
-            const classIcons = {
-                "Warrior": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>`,
-                "Archer": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>`,
-                "Mage": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>`,
-                "Shaman": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>`,
-                "Assassin": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>`
-            };
-
-            grid.innerHTML = `<div class="col-span-full py-16 flex flex-col items-center justify-center text-center animate-float-in"><div class="w-16 h-16 bg-[#2b2d31] rounded-2xl flex items-center justify-center mb-6 shadow-lg border border-[#313338] transform rotate-45"><svg class="w-8 h-8 text-[#5865F2] -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div><h2 class="text-4xl md:text-5xl font-bold text-white title-font mb-4 tracking-wider ethereal-title">The Vault is Locked</h2><p class="text-[#949ba4] text-base md:text-lg mb-12 max-w-2xl px-4">Choose your class and unveil its potential.</p><div class="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 w-full max-w-5xl px-4">${CLASSES.map(cls => `<div onclick="selectClassShortcut('${cls}')" class="path-card path-card-${cls} cursor-pointer rounded-xl p-6 flex flex-col items-center justify-center"><div class="path-icon w-14 h-14 rounded-full flex items-center justify-center mb-4 border-2 border-[#313338] text-[#949ba4]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">${classIcons[cls]}</svg></div><h3 class="text-lg font-bold text-white title-font">${cls}</h3></div>`).join('')}</div></div>`;
+            const classIcons = { "Warrior": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>`, "Archer": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>`, "Mage": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>`, "Shaman": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>`, "Assassin": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>` };
+            grid.innerHTML = `<div class="col-span-full py-16 flex flex-col items-center justify-center text-center animate-float-in"><div class="w-16 h-16 bg-[#2b2d31] rounded-2xl flex items-center justify-center mb-6 shadow-lg border border-[#313338] transform rotate-45"><svg class="w-8 h-8 text-[#5865F2] -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div><h2 class="text-4xl md:text-5xl font-bold text-white title-font mb-4 tracking-wider ethereal-title">The Vault is Locked</h2><p class="text-[#949ba4] text-base md:text-lg mb-4 max-w-2xl px-4 font-medium italic">"Assassin & Shaman will be added later. Sbacix aint gettin' paid enough to add them rn... manual labor is exhausting."</p><p class="text-[#949ba4] text-sm md:text-base mb-12 max-w-2xl px-4 opacity-70">Choose a class to unveil its potential.</p><div class="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 w-full max-w-5xl px-4">${CLASSES.map(cls => `<div onclick="selectClassShortcut('${cls}')" class="path-card path-card-${cls} cursor-pointer rounded-xl p-6 flex flex-col items-center justify-center"><div class="path-icon w-14 h-14 rounded-full flex items-center justify-center mb-4 border-2 border-[#313338] text-[#949ba4]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">${classIcons[cls]}</svg></div><h3 class="text-lg font-bold text-white title-font">${cls}</h3></div>`).join('')}</div></div>`;
         }
 
-        window.selectClassShortcut = (cls) => {
-            activeClasses.add(cls);
-            const cb = document.querySelector(`.class-cb[value="${cls}"]`);
-            if (cb) cb.checked = true;
-            updateButtonLabels();
-            renderBuilds();
-        };
+        window.selectClassShortcut = (cls) => { activeClasses.add(cls); const cb = document.querySelector(`.class-cb[value="${cls}"]`); if (cb) cb.checked = true; updateButtonLabels(); renderBuilds(); };
 
         function renderBuilds() {
             const grid = document.getElementById('buildsGrid');
             const countLabel = document.getElementById('resultsCount');
             if (activeClasses.size === 0) { renderInitialState(); countLabel.textContent = `0 Builds`; return; }
-
-            const filtered = buildsData.filter(build => {
+            const maxDPS = Math.max(...buildsData.map(b => b.dpsValue), 1);
+            const maxEHP = Math.max(...buildsData.map(b => b.ehpValue), 1);
+            let filtered = buildsData.filter(build => {
                 const matchClass = activeClasses.has(build.class);
                 const matchSub = activeSubclasses.size === 0 || activeSubclasses.has(build.subclass);
                 const matchWep = activeWeapons.size === 0 || activeWeapons.has(build.weapon);
-                const searchStr = (build.description + " " + (build.tags ? build.tags.join(" ") : "") + " " + build.name).toLowerCase();
-                const matchCnt = activeContent.size === 0 || Array.from(activeContent).every(cId => CONTENT_OPTIONS.find(f => f.id === cId).keys.some(key => searchStr.includes(key)));
-                const matchPlay = activePlaystyles.size === 0 || Array.from(activePlaystyles).every(pId => PLAYSTYLE_OPTIONS.find(f => f.id === pId).keys.some(key => searchStr.includes(key)));
-                return matchClass && matchSub && matchWep && matchCnt && matchPlay && (!searchQuery || searchStr.includes(searchQuery));
+                const searchStr = (build.description + " " + (build.tags ? build.tags.join(" ") : "") + " " + build.name + " " + (build.uses ? build.uses.join(" ") : "") + " " + (build.author ? build.author : "")).toLowerCase();
+                const matchCnt = activeContent.size === 0 || Array.from(activeContent).every(cId => {
+                    const keys = CONTENT_OPTIONS.find(f => f.id === cId).keys;
+                    return keys.some(key => searchStr.includes(key));
+                });
+                const matchOrigin = activeOrigin.size === 0 || ((activeOrigin.has('Crafted') && build.isCrafted) || (activeOrigin.has('Standard') && !build.isCrafted));
+                const matchRarity = activeRarity.size === 0 || activeRarity.has(build.rarity);
+                return matchClass && matchSub && matchWep && matchCnt && matchOrigin && matchRarity && (!searchQuery || searchStr.includes(searchQuery));
             });
-
-            grid.innerHTML = filtered.length === 0 ? `<div class="col-span-full py-20 text-center text-[#949ba4]">No builds found matching your criteria.</div>` : filtered.map(createBuildCard).join('');
+            filtered.sort((a, b) => {
+                if (currentSort === 'dps') return b.dpsValue - a.dpsValue;
+                if (currentSort === 'ehp') return b.ehpValue - a.ehpValue;
+                if (currentSort === 'dph') return b.dphValue - a.dphValue;
+                if (currentSort === 'aspd') return aspdMap[b.aspd] - aspdMap[a.aspd];
+                return 0;
+            });
+            grid.innerHTML = filtered.length === 0 ? `<div class="col-span-full py-20 text-center text-[#949ba4]">No entries found matching filters.</div>` : filtered.map(b => createBuildCard(b, maxDPS, maxEHP)).join('');
             countLabel.textContent = `${filtered.length} Build${filtered.length !== 1 ? 's' : ''}`;
-            
             document.querySelectorAll('.subclass-item').forEach(item => item.style.display = activeClasses.size === 0 || activeClasses.has(item.dataset.parent) ? 'flex' : 'none');
         }
 
         function attachEventListeners() {
-            const bind = (selector, set) => document.querySelectorAll(selector).forEach(cb => cb.addEventListener('change', (e) => {
-                if (e.target.checked) set.add(e.target.value); else set.delete(e.target.value);
-                renderBuilds(); updateButtonLabels();
-            }));
-            bind('.class-cb', activeClasses);
-            bind('.subclass-cb', activeSubclasses);
-            bind('.weapon-cb', activeWeapons);
-            bind('.content-cb', activeContent);
-            bind('.playstyle-cb', activePlaystyles);
+            const bind = (selector, set) => document.querySelectorAll(selector).forEach(cb => cb.addEventListener('change', (e) => { if (e.target.checked) set.add(e.target.value); else set.delete(e.target.value); renderBuilds(); updateButtonLabels(); }));
+            const rebindFilters = () => { bind('.class-cb', activeClasses); bind('.subclass-cb', activeSubclasses); bind('.weapon-cb', activeWeapons); bind('.content-cb', activeContent); bind('.origin-cb', activeOrigin); bind('.rarity-cb', activeRarity); };
+            rebindFilters();
+            document.querySelectorAll('.custom-dropdown').forEach(dropdown => { dropdown.addEventListener('mouseenter', rebindFilters, { once: true }); dropdown.addEventListener('click', rebindFilters); });
             document.getElementById('searchInput').addEventListener('input', (e) => { searchQuery = e.target.value.toLowerCase(); renderBuilds(); });
         }
 
-        window.clearFilters = () => {
-            [activeClasses, activeSubclasses, activeWeapons, activeContent, activePlaystyles].forEach(s => s.clear());
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            document.getElementById('searchInput').value = ''; searchQuery = '';
-            updateButtonLabels(); renderBuilds();
-        };
-
+        window.clearFilters = () => { [activeClasses, activeSubclasses, activeWeapons, activeContent, activeOrigin, activeRarity].forEach(s => s.clear()); document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false); document.getElementById('searchInput').value = ''; searchQuery = ''; setSort('dps'); updateButtonLabels(); renderBuilds(); };
         renderFilters(); attachEventListeners(); renderBuilds();
     </script>
 </body>
