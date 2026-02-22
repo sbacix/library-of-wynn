@@ -9,7 +9,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap');
 
         :root {
-            /* Modern Discord-esque Palette */
             --bg-base: #1e1f22;
             --bg-surface: #2b2d31;
             --bg-elevated: #313338;
@@ -23,7 +22,6 @@
             --text-muted: #949ba4;
             --text-heading: #f2f3f5;
 
-            /* Class Colors for Accents */
             --clr-warrior: #ed4245;
             --clr-archer: #57f287;
             --clr-mage: #00e5ff;
@@ -36,14 +34,13 @@
             color: var(--text-normal);
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            overflow-y: scroll; /* Prevent layout shift */
+            overflow-y: scroll;
         }
 
         h1, .title-font {
             font-family: 'Cinzel', serif;
         }
 
-        /* --- Animations & Effects --- */
         .ethereal-title {
             background: linear-gradient(to right, #d4d4d8 0%, #ffffff 50%, #d4d4d8 100%);
             -webkit-background-clip: text;
@@ -56,7 +53,6 @@
         }
         .animate-float-in { animation: floatIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-        /* Path Selection Cards */
         .path-card {
             background-color: var(--bg-surface);
             border: 2px solid #313338;
@@ -80,20 +76,17 @@
         .path-card-Assassin:hover { border-color: var(--clr-assassin); box-shadow: 0 10px 30px rgba(235, 69, 158, 0.25); }
         .path-card-Assassin:hover .path-icon { border-color: var(--clr-assassin); color: var(--clr-assassin); background: rgba(235, 69, 158, 0.1); }
 
-        /* --- Custom Scrollbar --- */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-base); }
         ::-webkit-scrollbar-thumb { background: #111214; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #000000; }
 
-        /* --- Dashboard & Layout --- */
         .dashboard-bar {
             background-color: var(--bg-surface);
             border-bottom: 1px solid #1e1f22;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
-        /* --- Custom Dropdowns --- */
         .custom-dropdown { position: relative; }
         .dropdown-btn {
             background-color: var(--bg-elevated);
@@ -132,7 +125,6 @@
             transform: translateY(0);
         }
 
-        /* Modern Checkbox Item */
         .dropdown-item {
             display: flex;
             align-items: center;
@@ -171,7 +163,6 @@
             transform: rotate(45deg);
         }
 
-        /* --- Build Cards --- */
         .build-card {
             background-color: var(--bg-surface);
             border-radius: 12px;
@@ -188,7 +179,6 @@
             background-color: #2e3035;
         }
         
-        /* Top accent border */
         .card-accent {
             position: absolute;
             top: 0; left: 0; right: 0; height: 3px;
@@ -200,14 +190,12 @@
         .card-Shaman .card-accent { background: var(--clr-shaman); box-shadow: 0 0 10px var(--clr-shaman); }
         .card-Assassin .card-accent { background: var(--clr-assassin); box-shadow: 0 0 10px var(--clr-assassin); }
 
-        /* Badge Colors */
         .badge-Warrior { background: rgba(237, 66, 69, 0.15); color: var(--clr-warrior); }
         .badge-Archer { background: rgba(87, 242, 135, 0.15); color: var(--clr-archer); }
         .badge-Mage { background: rgba(0, 229, 255, 0.15); color: var(--clr-mage); }
         .badge-Shaman { background: rgba(254, 231, 92, 0.15); color: var(--clr-shaman); }
         .badge-Assassin { background: rgba(235, 69, 158, 0.15); color: var(--clr-assassin); }
 
-        /* Inputs */
         .search-input {
             background-color: var(--bg-base);
             color: var(--text-normal);
@@ -221,11 +209,9 @@
 </head>
 <body>
 
-    <!-- Top Master Dashboard -->
     <nav class="dashboard-bar sticky top-0 z-50 py-3 px-4 md:px-8">
         <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center gap-4 justify-between">
             
-            <!-- Logo / Title area -->
             <div class="flex items-center gap-3 shrink-0">
                 <div class="w-8 h-8 rounded-lg bg-[#5865F2] flex items-center justify-center shadow-[0_0_15px_rgba(88,101,242,0.5)]">
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
@@ -233,10 +219,8 @@
                 <h1 class="text-xl font-bold text-white tracking-wide title-font">Library of Wynn</h1>
             </div>
 
-            <!-- Filters & Search Controls -->
             <div class="flex flex-wrap items-center gap-3 w-full md:w-auto flex-grow justify-end">
                 
-                <!-- Search Bar -->
                 <div class="relative flex-grow max-w-sm w-full md:w-auto">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
@@ -245,62 +229,51 @@
                         class="search-input w-full rounded-md pl-10 pr-4 py-2 text-sm placeholder-gray-500 transition-colors">
                 </div>
 
-                <!-- Class Dropdown -->
                 <div class="custom-dropdown" id="dropdown-class">
                     <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-class')">
                         <span id="class-btn-text">Classes</span>
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="dropdown-menu" id="classFilters">
-                        <!-- Populated by JS -->
                     </div>
                 </div>
 
-                <!-- Subclass Dropdown -->
                 <div class="custom-dropdown" id="dropdown-subclass">
                     <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-subclass')">
                         <span id="subclass-btn-text">Subclasses</span>
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="dropdown-menu" id="subclassFilters">
-                        <!-- Populated by JS -->
                     </div>
                 </div>
 
-                <!-- Weapon Dropdown -->
                 <div class="custom-dropdown" id="dropdown-weapon">
                     <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-weapon')">
                         <span id="weapon-btn-text">Weapons</span>
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="dropdown-menu" id="weaponFilters">
-                        <!-- Populated by JS -->
                     </div>
                 </div>
 
-                <!-- Content/Raids Dropdown -->
                 <div class="custom-dropdown" id="dropdown-content">
                     <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-content')">
                         <span id="content-btn-text">Content</span>
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="dropdown-menu" id="contentFilters">
-                        <!-- Populated by JS -->
                     </div>
                 </div>
 
-                <!-- Playstyle Dropdown -->
                 <div class="custom-dropdown" id="dropdown-playstyle">
                     <button class="dropdown-btn flex items-center justify-between gap-2 px-4 py-2 rounded-md text-sm font-medium min-w-[130px]" onclick="toggleDropdown('dropdown-playstyle')">
                         <span id="playstyle-btn-text">Playstyle</span>
                         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="dropdown-menu" id="playstyleFilters">
-                        <!-- Populated by JS -->
                     </div>
                 </div>
 
-                <!-- Sort Native Select -->
                 <div class="relative">
                     <select id="sortSelect" class="dropdown-btn appearance-none flex items-center justify-between gap-2 pl-4 pr-10 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-1 focus:ring-[#5865F2]">
                         <option value="newest">Newest Added</option>
@@ -318,7 +291,6 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="max-w-[1400px] mx-auto p-4 md:px-6 md:py-4">
         
         <div class="flex justify-between items-center mb-4">
@@ -327,12 +299,10 @@
         </div>
 
         <div id="buildsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            <!-- Build Cards injected by JS -->
         </div>
 
     </main>
 
-    <!-- Footer / Credits -->
     <footer class="max-w-[1400px] mx-auto px-4 md:px-6 pb-8 pt-4 mt-4 border-t border-[#313338] text-center flex flex-col gap-2">
         <p class="text-xs text-[#949ba4] tracking-wide flex items-center justify-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
             <svg class="w-3.5 h-3.5 text-[#5865F2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
@@ -344,9 +314,7 @@
     </footer>
 
     <script>
-        // --- DATA LAYER ---
         const buildsData = [
-            // --- WARRIOR BUILDS ---
             {
                 id: "w-bloodbath-crafted",
                 name: "Crafted Bloodbath",
@@ -1373,7 +1341,6 @@
                 ]
             },
 
-            // --- SHAMAN BUILDS ---
             {
                 id: "s-resonance-crafted",
                 name: "Crafted Resonance",
@@ -2199,7 +2166,6 @@
                 ]
             },
 
-            // --- NEW ASSASSIN SUBMISSIONS ---
             {
                 id: "new-hanafubuki-crafted",
                 name: "Crafted Hanafubuki",
@@ -2606,7 +2572,6 @@
                 ]
             },
 
-            // --- NON MYTHICS (STARTER BUILDS) ---
             {
                 id: "non-mythic-flameshot",
                 name: "Flameshot Hilt",
@@ -2784,7 +2749,6 @@
                 ]
             },
 
-            // --- NEW MAGE SUBMISSIONS ---
             {
                 id: "new-trance-riftbender-crafted",
                 name: "Crafted Trance",
@@ -3177,7 +3141,6 @@
                 ]
             },
 
-            // --- NEW SHAMAN SUBMISSIONS ---
             {
                 id: "new-resonance-acolyte-crafted",
                 name: "Crafted Resonance (Beam Spam)",
@@ -3518,7 +3481,6 @@
                 ]
             },
 
-            // --- LATEST WARRIOR SUBMISSIONS ---
             {
                 id: "new2-w-con-pala-non",
                 name: "Convergence (Paladin Support)",
@@ -3863,7 +3825,6 @@
                 ]
             },
 
-            // --- LATEST ARCHER SUBMISSIONS ---
             {
                 id: "new2-a-lab-trap-crafted",
                 name: "Crafted Labyrinth (Trapper)",
@@ -4219,15 +4180,11 @@
             }
         ];
 
-        // --- FIX BROKEN LINKS DYNAMICALLY ---
-        // Scans the array instantly on load. If a link contains the "..." truncation,
-        // it updates the URL to the main forum thread and adds a visual indicator to the button text!
         buildsData.forEach(build => {
             if (build.links) {
                 build.links.forEach(link => {
                     if (link.url.includes('wynnbuilder.github.io/build...')) {
                         link.url = 'https://forums.wynncraft.com/threads/new-dawn-of-the-builds-guide.322635/';
-                        // Prevent duplicating the tag if run multiple times
                         if (!link.label.includes('(via Forum)')) {
                             link.label = link.label + ' (via Forum)';
                         }
@@ -4263,7 +4220,6 @@
             { id: "Grind", label: "Grind / Farm", keys: ["grind", "farm", "ingredient"] }
         ];
 
-        // --- STATE ---
         let activeClasses = new Set();
         let activeSubclasses = new Set();
         let activeWeapons = new Set();
@@ -4271,12 +4227,10 @@
         let activePlaystyles = new Set();
         let searchQuery = "";
 
-        // --- UI UTILS ---
         function toggleDropdown(id) {
             const dropdown = document.getElementById(id);
             const wasOpen = dropdown.classList.contains('open');
             
-            // Close all others
             document.querySelectorAll('.custom-dropdown').forEach(d => {
                 d.classList.remove('open');
                 d.querySelector('.dropdown-btn').classList.remove('active');
@@ -4288,7 +4242,6 @@
             }
         }
 
-        // Close dropdowns on outside click
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.custom-dropdown')) {
                 document.querySelectorAll('.custom-dropdown').forEach(d => {
@@ -4298,7 +4251,6 @@
             }
         });
 
-        // --- RENDER FUNCTIONS ---
         function renderFilters() {
             const classContainer = document.getElementById('classFilters');
             const subclassContainer = document.getElementById('subclassFilters');
@@ -4306,7 +4258,6 @@
             const contentContainer = document.getElementById('contentFilters');
             const playstyleContainer = document.getElementById('playstyleFilters');
             
-            // Render Classes Menu
             classContainer.innerHTML = CLASSES.map(cls => `
                 <label class="dropdown-item">
                     <input type="checkbox" class="custom-checkbox class-cb" value="${cls}">
@@ -4314,7 +4265,6 @@
                 </label>
             `).join('');
 
-            // Render Subclasses Menu
             const allSubclasses = Object.values(SUBCLASSES).flat();
             subclassContainer.innerHTML = allSubclasses.map(sub => {
                 const parent = Object.keys(SUBCLASSES).find(k => SUBCLASSES[k].includes(sub));
@@ -4327,7 +4277,6 @@
                 `;
             }).join('');
 
-            // Render Weapons Menu
             const uniqueWeapons = [...new Set(buildsData.map(b => b.weapon))].sort();
             weaponContainer.innerHTML = uniqueWeapons.map(wpn => `
                 <label class="dropdown-item">
@@ -4336,7 +4285,6 @@
                 </label>
             `).join('');
 
-            // Render Content Menu
             contentContainer.innerHTML = CONTENT_OPTIONS.map(opt => `
                 <label class="dropdown-item">
                     <input type="checkbox" class="custom-checkbox content-cb" value="${opt.id}">
@@ -4344,7 +4292,6 @@
                 </label>
             `).join('');
 
-            // Render Playstyle Menu
             playstyleContainer.innerHTML = PLAYSTYLE_OPTIONS.map(opt => `
                 <label class="dropdown-item">
                     <input type="checkbox" class="custom-checkbox playstyle-cb" value="${opt.id}">
@@ -4386,7 +4333,6 @@
                 `<span class="px-2 py-1 text-[10px] font-semibold uppercase tracking-wider rounded bg-[#1e1f22] text-[#dbdee1] border border-[#313338]">${tag}</span>`
             ).join('') : '';
 
-            // Render links if available
             const linksHtml = build.links && build.links.length > 0 ? `
                 <div class="mt-3 pt-2 border-t border-[#313338] mb-3">
                     <span class="block text-[#949ba4] text-[10px] uppercase font-bold tracking-wider mb-1.5">Build Links</span>
@@ -4488,11 +4434,9 @@
 
         window.selectClassShortcut = (cls) => {
             activeClasses.add(cls);
-            // Visually check the corresponding hidden checkbox
             const cb = document.querySelector(`.class-cb[value="${cls}"]`);
             if (cb) cb.checked = true;
             
-            // Force dropdown text updates and render the grid
             updateButtonLabels();
             renderBuilds();
         };
@@ -4502,7 +4446,6 @@
             const countLabel = document.getElementById('resultsCount');
             const sortVal = document.getElementById('sortSelect').value;
             
-            // Intercept: If no classes selected, show the Fun UI
             if (activeClasses.size === 0) {
                 renderInitialState();
                 countLabel.textContent = `0 Builds`;
@@ -4511,7 +4454,6 @@
                 return;
             }
 
-            // 1. Filter
             let filtered = buildsData.filter(build => {
                 const matchClass = activeClasses.size === 0 || activeClasses.has(build.class);
                 const matchSubclass = activeSubclasses.size === 0 || activeSubclasses.has(build.subclass);
@@ -4537,14 +4479,12 @@
                 return matchClass && matchSubclass && matchWeapon && matchContent && matchPlaystyle && matchSearch;
             });
 
-            // 2. Sort
             filtered.sort((a, b) => {
                 if (sortVal === 'dps-high') return (b.dpsValue || 0) - (a.dpsValue || 0);
                 if (sortVal === 'surv-high') return (b.survValue || 0) - (a.survValue || 0);
                 return 0; 
             });
 
-            // 3. Render
             if (filtered.length === 0) {
                 grid.innerHTML = `
                     <div class="col-span-full py-20 flex flex-col items-center justify-center text-center">
@@ -4559,7 +4499,6 @@
             
             countLabel.textContent = `${filtered.length} Build${filtered.length !== 1 ? 's' : ''}`;
             
-            // 4. Update dynamic UI
             updateSubclassVisibility();
             updateButtonLabels();
         }
@@ -4572,7 +4511,6 @@
                     item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';
-                    // Uncheck if hidden
                     const cb = item.querySelector('input');
                     if (cb.checked) {
                         cb.checked = false;
@@ -4583,7 +4521,6 @@
         }
 
         function attachEventListeners() {
-            // Class Filters
             document.querySelectorAll('.class-cb').forEach(cb => {
                 cb.addEventListener('change', (e) => {
                     if (e.target.checked) activeClasses.add(e.target.value);
@@ -4592,7 +4529,6 @@
                 });
             });
 
-            // Subclass Filters
             document.querySelectorAll('.subclass-cb').forEach(cb => {
                 cb.addEventListener('change', (e) => {
                     if (e.target.checked) activeSubclasses.add(e.target.value);
@@ -4601,7 +4537,6 @@
                 });
             });
 
-            // Weapon Filters
             document.querySelectorAll('.weapon-cb').forEach(cb => {
                 cb.addEventListener('change', (e) => {
                     if (e.target.checked) activeWeapons.add(e.target.value);
@@ -4610,7 +4545,6 @@
                 });
             });
 
-            // Content Filters
             document.querySelectorAll('.content-cb').forEach(cb => {
                 cb.addEventListener('change', (e) => {
                     if (e.target.checked) activeContent.add(e.target.value);
@@ -4619,7 +4553,6 @@
                 });
             });
 
-            // Playstyle Filters
             document.querySelectorAll('.playstyle-cb').forEach(cb => {
                 cb.addEventListener('change', (e) => {
                     if (e.target.checked) activePlaystyles.add(e.target.value);
@@ -4628,13 +4561,11 @@
                 });
             });
 
-            // Search
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 searchQuery = e.target.value.toLowerCase();
                 renderBuilds();
             });
 
-            // Sort
             document.getElementById('sortSelect').addEventListener('change', () => {
                 renderBuilds();
             });
@@ -4653,7 +4584,6 @@
             renderBuilds();
         }
 
-        // Boot
         renderFilters();
         attachEventListeners();
         renderBuilds();
