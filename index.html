@@ -187,6 +187,32 @@
             margin: 12px 0;
             border-radius: 0 6px 6px 0;
         }
+
+        /* Redesigned Subclass Cards */
+        .subclass-card {
+            background-color: var(--bg-elevated);
+            border: 2px solid #1e1f22;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 70px;
+        }
+        .subclass-card:hover { transform: translateY(-4px); border-color: var(--accent-primary); background: var(--bg-modifier-hover); }
+        .subclass-card.active { border-color: var(--accent-primary); background: var(--accent-primary); }
+        .subclass-card.active h4 { color: white; }
+        .subclass-card h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
     </style>
 </head>
 <body>
@@ -194,7 +220,7 @@
     <nav class="dashboard-bar sticky top-0 z-50 py-3 px-4 md:px-8">
         <div class="max-w-[1400px] mx-auto flex flex-col gap-4">
             <div class="flex flex-col md:flex-row items-center gap-4 justify-between">
-                <div class="flex items-center gap-3 shrink-0">
+                <div class="flex items-center gap-3 shrink-0 cursor-pointer" onclick="clearFilters()">
                     <div class="w-8 h-8 rounded-lg bg-[#5865F2] flex items-center justify-center shadow-[0_0_15px_rgba(88,101,242,0.5)]">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                     </div>
@@ -281,6 +307,12 @@
     </nav>
 
     <main class="max-w-[1400px] mx-auto p-4 md:px-6 md:py-4">
+        <!-- Subclass Selection Dashboard -->
+        <div id="subclassDashboard" class="mb-8 hidden animate-float-in">
+            <h3 class="text-[10px] font-black uppercase text-gray-500 tracking-[0.2em] mb-4 text-center">Specialize Your Path</h3>
+            <div id="subclassGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto"></div>
+        </div>
+
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-2xl font-bold text-white title-font">Community Grimoire</h2>
             <div class="flex items-center gap-3">
@@ -491,7 +523,7 @@
 
         const CLASSES = ["Warrior", "Archer", "Mage", "Shaman", "Assassin"];
         const SUBCLASSES = {
-            "Warrior": ["Fallen", "Battle Monk", "Paladin", "Paladin/Battle Monk"],
+            "Warrior": ["Fallen", "Battle Monk", "Paladin"],
             "Archer": ["Boltslinger", "Trapper", "Sharpshooter"],
             "Mage": ["Arcanist", "Light Bender", "Riftwalker"],
             "Shaman": ["Acolyte", "Summoner", "Ritualist"],
@@ -599,9 +631,45 @@
             });
         }
 
+        function toggleSubclassShortcut(sub) {
+            if (activeSubclasses.has(sub)) {
+                activeSubclasses.delete(sub);
+            } else {
+                activeSubclasses.add(sub);
+            }
+            document.querySelectorAll('.subclass-cb').forEach(cb => {
+                cb.checked = activeSubclasses.has(cb.value);
+            });
+            renderBuilds();
+            updateButtonLabels();
+        }
+
+        function renderSubclassDashboard() {
+            const dash = document.getElementById('subclassDashboard');
+            const gridCont = document.getElementById('subclassGrid');
+            
+            if (activeClasses.size !== 1) {
+                dash.classList.add('hidden');
+                return;
+            }
+
+            dash.classList.remove('hidden');
+            const activeClass = Array.from(activeClasses)[0];
+            const subclasses = SUBCLASSES[activeClass];
+
+            gridCont.innerHTML = subclasses.map(sub => {
+                const isActive = activeSubclasses.has(sub);
+                return `
+                    <div onclick="toggleSubclassShortcut('${sub}')" class="subclass-card ${isActive ? 'active' : ''}">
+                        <h4>${sub}</h4>
+                    </div>
+                `;
+            }).join('');
+        }
+
         function createBuildCard(build, maxDPS, maxEHP) {
             const tagsHtml = build.tags ? build.tags.map(tag => `<span class="px-2 py-1 text-[9px] font-bold uppercase tracking-wider rounded bg-[#1e1f22] text-[#949ba4] border border-[#313338]">${tag}</span>`).join('') : '';
-            const linksHtml = build.links && build.links.length > 0 ? `<div class="mt-3 pt-2 border-t border-[#313338] mb-3"><span class="block text-[#949ba4] text-[10px] uppercase font-bold tracking-wider mb-1.5">Build Links</span><div class="flex flex-col gap-1">${build.links.map(l => `<a href="${l.url}" target="_blank" class="text-sm text-[#5865F2] hover:text-[#4752C4] hover:underline truncate transition-colors">↳ ${l.label}</a>`).join('')}</div></div>` : '<div class="mb-3"></div>';
+            const linksHtml = build.links && build.links.length > 0 ? `<div class="mt-3 pt-2 border-t border-[#313338] mb-3"><span class="block text-[#949ba4] text-[10px] uppercase font-bold tracking-wider mb-1.5">Build Links</span><div class="flex flex-col gap-1">${build.links.map(l => `<a href="${l.url}" target="_blank" class="text-sm text-[#5865F2] hover:text-[#4752C4] hover:underline truncate transition-colors font-medium">↳ ${l.label}</a>`).join('')}</div></div>` : '<div class="mb-3"></div>';
             
             const usesHtml = build.uses ? build.uses.map(use => {
                 const colorClass = contentColorMap[use] || contentColorMap["General Use"];
@@ -609,7 +677,6 @@
             }).join('') : '';
 
             const authorHtml = build.author ? `<p class="text-[11px] text-[#949ba4] italic mb-1.5 opacity-80">Created by ${build.author}</p>` : '';
-
             const noteHtml = build.note ? `<div class="note-bucket text-[11px] text-[#dbdee1] italic leading-relaxed shadow-inner font-medium">${build.note}</div>` : '';
 
             const dpsPct = (build.dpsValue / maxDPS) * 100;
@@ -673,6 +740,9 @@
 
         function renderInitialState() {
             const grid = document.getElementById('buildsGrid');
+            const dash = document.getElementById('subclassDashboard');
+            dash.classList.add('hidden');
+
             const classIcons = { "Warrior": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>`, "Archer": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>`, "Mage": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>`, "Shaman": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>`, "Assassin": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path>` };
             grid.innerHTML = `<div class="col-span-full py-16 flex flex-col items-center justify-center text-center animate-float-in"><div class="w-16 h-16 bg-[#2b2d31] rounded-2xl flex items-center justify-center mb-6 shadow-lg border border-[#313338] transform rotate-45"><svg class="w-8 h-8 text-[#5865F2] -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></div><h2 class="text-4xl md:text-5xl font-bold text-white title-font mb-4 tracking-wider ethereal-title">The Vault is Locked</h2><p class="text-[#949ba4] text-sm md:text-base mb-12 max-w-2xl px-4 opacity-70">Choose a class to unveil its potential.</p><div class="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 w-full max-w-5xl px-4">${CLASSES.map(cls => `<div onclick="selectClassShortcut('${cls}')" class="path-card path-card-${cls} cursor-pointer rounded-xl p-6 flex flex-col items-center justify-center"><div class="path-icon w-14 h-14 rounded-full flex items-center justify-center mb-4 border-2 border-[#313338] text-[#949ba4]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">${classIcons[cls]}</svg></div><h3 class="text-lg font-bold text-white title-font">${cls}</h3></div>`).join('')}</div></div>`;
         }
@@ -694,6 +764,7 @@
             
             processBuildLinks();
             updateWeaponFilterUI();
+            renderSubclassDashboard();
 
             const maxDPS = Math.max(...buildsData.map(b => b.dpsValue), 1);
             const maxEHP = Math.max(...buildsData.map(b => b.ehpValue), 1);
